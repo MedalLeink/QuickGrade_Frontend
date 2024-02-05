@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "../components/Button";
 
-
-
 const data1 = [
   {
     code: "CE 522",
@@ -46,96 +44,77 @@ function StudentDashboard() {
               </p>
               <div>
                 <table className="">
-                  <thead>
-                    <tr>
-                      <th className="pl-[25px] pr-[55px] whitespace-nowrap">
-                        Course Code
-                      </th>
-                      <th className="p-[55px]">Department</th>
-                      <th className="p-[55px]">Date/Time</th>
-                      <th className="p-[55px]">Venue</th>
-                      <th className="p-[55px]">Registered</th>
-                      <th className="p-[55px]">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody className="justify-space between">
-                    <div>
+                  <div className="mt-9">
+                    <thead>
+                      <tr className="flex gap-[120px]">
+                        <th className="whitespace-nowrap">Course Code </th>
+                        <th>Department</th>
+                        <th>Date/Time</th>
+                        <th>Venue</th>
+                        <th>Registered</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                 </div>
+                  <tbody>
+                    <div className="mt-9 border-4 border-gray-400 w-full mb-8">
                       {data1.map((item: any) => (
-                        <tr>
+                        <tr className="flex gap-[90px]">
                           <td>{item.code}</td>
                           <td>{item.department}</td>
                           <td>{item.timeDate}</td>
                           <td>{item.venue}</td>
                           <td>{item.registered}</td>
+                          <Button
+                            title={"Set Exam"}
+                            text={"purple-50"}
+                            bg={"purple-50"}
+                            type={""}
+                          />
                         </tr>
                       ))}
-                      <Button
-                        title={"Set Exam"}
-                        text={"purple-50"}
-                        bg={"purple-50"}
-                        type={""}
-                       />
                     </div>
 
-                    {/* <tr  className="border-4 border-gray-400 w-full mb-8">
-                      <td className="pl-[25px] pr-[15px]">CE 522</td>
-                      <td className="p-[5px] whitespace-nowrap">
-                        Chemical Engineering
-                      </td>
-                      <td className="pl-[35px] p-[15px]">
-                        10 Aug 2023/
-                        <br /> 2:10PM
-                      </td>
-                      <td className="p-[15px]">Campus E-centre</td>
-                      <td className="pl-[90px]">211</td>
-                      <td className="pl-[45px]">
-                        <button className="border border-purple-50 text-purple-50 px-2 py-2 rounded-full hover:bg-purple-50 hover:text-white transition-all duration-300" onClick={()=>console.log("Clicked")}>
-                          Set Exam
-                        </button>
-                      </td>
-                    </tr>
-                     
-                    <tr className="border-4 border-gray-400 gap-4">
-                      <td className="pl-[25px] pr-[15px]">CE 522</td>
-                      <td className="p-[5px] whitespace-nowrap">
-                        Chemical Engineering
-                      </td>
-                      <td className="pl-[35px] p-[15px]">
-                        10 Aug 2023/
-                        <br /> 2:10PM
-                      </td>
-                      <td className="p-[15px]">Campus E-centre</td>
-                      <td className="pl-[90px]">211</td>
-                      <td className="pl-[45px]">
-                        <button className="border border-purple-50 text-purple-50 px-2 py-2 rounded-full hover:bg-purple-50 hover:text-white transition-all duration-300" onClick={()=>console.log("Clicked")}>
-                          Set Exam
-                        </button>
-                      </td>
-                    </tr>
-                    <tr className="border-4 border-gray-400 rounded mt-4">
-                      <td className="pl-[25px] pr-[15px]">CE 522</td>
-                      <td className="p-[5px] whitespace-nowrap">
-                        Chemical Engineering
-                      </td>
-                      <td className="pl-[35px] p-[15px]">
-                        10 Aug 2023/
-                        <br /> 2:10PM
-                      </td>
-                      <td className="p-[15px]">Campus E-centre</td>
-                      <td className="pl-[90px]">211</td>
-                      <td className="pl-[45px]">
-                        <button className="border border-purple-50 text-purple-50 px-2 py-2 rounded-full hover:bg-purple-50 hover:text-white transition-all duration-300" onClick={()=>console.log("Clicked")}>
-                          Set Exam
-                        </button>
-                      </td>
-                    </tr> */}
+                    <div className="mt-9 border-4 border-gray-400 w-full mb-8">
+                      {data1.map((item: any) => (
+                        <tr className="flex gap-[90px]">
+                          <td>{item.code}</td>
+                          <td>{item.department}</td>
+                          <td>{item.timeDate}</td>
+                          <td>{item.venue}</td>
+                          <td>{item.registered}</td>
+                          <Button
+                            title={"Set Exam"}
+                            text={"purple-50"}
+                            bg={"purple-50"}
+                            type={""}
+                          />
+                        </tr>
+                      ))}
+                    </div>
+                    <div className="mt-9 border-4 border-gray-400 w-full mb-8">
+                      {data1.map((item: any) => (
+                        <tr className="flex gap-[90px]">
+                          <td>{item.code}</td>
+                          <td>{item.department}</td>
+                          <td>{item.timeDate}</td>
+                          <td>{item.venue}</td>
+                          <td>{item.registered}</td>
+                          <Button
+                            title={"Set Exam"}
+                            text={"purple-50"}
+                            bg={"purple-50"}
+                            type={""}
+                          />
+                        </tr>
+                      ))}
+                    </div>
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
         </div>
-        {/* j */}
       </div>
     </div>
   );
