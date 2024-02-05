@@ -55,9 +55,9 @@ function StudentDashboard() {
                         <th>Action</th>
                       </tr>
                     </thead>
-                 </div>
+                  </div>
                   <tbody>
-                    <div className="mt-9 border-4 border-gray-400 w-full mb-8">
+                    <div className="mt-9 border-2 border-gray-400 w-full mb-8">
                       {data1.map((item: any) => (
                         <tr className="flex gap-[90px]">
                           <td>{item.code}</td>
@@ -75,7 +75,7 @@ function StudentDashboard() {
                       ))}
                     </div>
 
-                    <div className="mt-9 border-4 border-gray-400 w-full mb-8">
+                    <div className="mt-9 border-2 border-gray-400 w-full mb-8">
                       {data1.map((item: any) => (
                         <tr className="flex gap-[90px]">
                           <td>{item.code}</td>
@@ -92,7 +92,7 @@ function StudentDashboard() {
                         </tr>
                       ))}
                     </div>
-                    <div className="mt-9 border-4 border-gray-400 w-full mb-8">
+                    <div className="mt-9 border-2 border-gray-400 w-full mb-8">
                       {data1.map((item: any) => (
                         <tr className="flex gap-[90px]">
                           <td>{item.code}</td>
