@@ -1,5 +1,5 @@
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-import StudentDashboard from "./components/StudentDashboard";
+import StudentDashboard from "./pages/StudentDashboard";
 
 //add the path and components to the element, you may remove the fragment
 
