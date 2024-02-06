@@ -1,16 +1,16 @@
+import React from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
-
-
-//add the path and components to the element, you may remove the fragment
+import LaunchScreen from "./pages/LaunchScreen";
+import SignInPage from "./pages/SignInPage";
 
 const App = () => {
   return (
-    <>
     <Router>
-          <Routes>
-          </Routes>
+      <Routes>
+        <Route path="/" element={<LaunchScreen />} />
+        <Route path="/SignInPage" element={<SignInPage />} />
+      </Routes>
     </Router>
-    </>
   );
 };
 
