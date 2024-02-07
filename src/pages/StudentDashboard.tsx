@@ -2,23 +2,6 @@ import React from "react";
 import Button from "../components/Button";
 import { Dropdown } from "primereact/dropdown";
 
-interface TableProps {
-  code: string;
-  title: string;
-  unit: string;
-}
-
-const data1: TableProps[] = [
-  { code: "BCH 208", title: "Enzymology", unit: "5 Units" },
-  { code: "BCH 201", title: "Nutrition and Diet", unit: "4 Units" },
-  { code: "BCH 212", title: "Blood and Body Fluids", unit: "2 Units" },
-  { code: "BCH 121", title: "DNA/RNA Sequence", unit: "4 Units" },
-  { code: "Chem 212", title: "Organic Chemistry", unit: "2 Units" },
-  { code: "BCH 233", title: "Pharmacology", unit: "4 Units" },
-  { code: "BCH 205", title: "Cytochromes Reactivity", unit: "2 Units" },
-  { code: "BCH 205", title: "Cytochromes Reactivity", unit: "2 Units" },
-  // Add more data as needed
-];
 
 function StudentDashboard() {
   return (
@@ -65,11 +48,10 @@ function StudentDashboard() {
                 </div>
                 <tbody>
                   <div className="mt-9 ">
-                    {data1.map((item: any) => (
                       <tr className="flex gap-[200px] border-2 border-gray-400 whitespace-nowrap mt-9">
-                        <td>{item.code}</td>
-                        <td>{item.title}</td>
-                        <td>{item.unit}</td>
+                        <td>BCH 208</td>
+                        <td>Enzymology</td>
+                        <td>5 Units</td>
                         <Button
                           title={"Enroll"}
                           text={"purple-50"}
@@ -77,7 +59,6 @@ function StudentDashboard() {
                           type={""}
                         />
                       </tr>
-                    ))}
                   </div>
                 </tbody>
               </table>
