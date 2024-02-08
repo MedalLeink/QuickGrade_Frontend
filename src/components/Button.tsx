@@ -5,7 +5,7 @@ interface Props {
   text?: string;
   bg?: string;
   type?: any;
-  onClick?: () => any; // Add onClick function type
+  onClick?: () => any;
 }
 
 function Button(props: Props) {
@@ -28,5 +28,5 @@ function Button(props: Props) {
     </button>
   );
 }
-
+       
 export default Button;
