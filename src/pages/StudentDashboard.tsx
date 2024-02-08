@@ -1,7 +1,5 @@
-import React from "react";
 import Button from "../components/Button";
-import { Dropdown } from "primereact/dropdown";
-
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 function StudentDashboard() {
   return (
@@ -30,9 +28,15 @@ function StudentDashboard() {
           <div className="pt-9">
             <p className="text-gray-500 font-bold font-custom border-b-2 border-gray-300 my-4 w-1/4 whitespace-nowrap">
               Semester: Second
-              <Dropdown />
+              <ChevronDownIcon
+                className="h-5 w-5 text-gray-400"
+                aria-hidden="false"
+              />
               Session: 2022/2023
-              <Dropdown />
+              <ChevronDownIcon
+                className="h-5 w-5 text-gray-400"
+                aria-hidden="true"
+              />
             </p>
 
             <div>
@@ -48,17 +52,17 @@ function StudentDashboard() {
                 </div>
                 <tbody>
                   <div className="mt-9 ">
-                      <tr className="flex gap-[200px] border-2 border-gray-400 whitespace-nowrap mt-9">
-                        <td>BCH 208</td>
-                        <td>Enzymology</td>
-                        <td>5 Units</td>
-                        <Button
-                          title={"Enroll"}
-                          text={"purple-50"}
-                          bg={"purple-50"}
-                          type={""}
-                        />
-                      </tr>
+                    <tr className="flex gap-[230px] whitespace-nowrap mt-9">
+                      <td>BCH 208</td>
+                      <td>Enzymology</td>
+                      <td>5 Units</td>
+                      <Button
+                        title={"Enroll"}
+                        text={"purple-50"}
+                        bg={"purple-50"}
+                        type={""}
+                      />
+                    </tr>
                   </div>
                 </tbody>
               </table>
