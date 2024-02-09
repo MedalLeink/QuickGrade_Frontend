@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import StudentDashboard from "./pages/StudentDashboard";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import LaunchScreen from "./pages/LaunchScreen";
@@ -9,7 +10,8 @@ import ForgetPassword from "./pages/forgetPassword";
 const App = () => {
   return (
     <Router>
-      <Routes>
+       <Routes>
+        <Route path="/StudentDashboard" element={<StudentDashboard />}/>
         <Route path="/" element={<LaunchScreen />} />
         <Route path="/SignInPage" element={<SignInPage />} />
         <Route path="/forgetPassword" element={<ForgetPassword />} />
