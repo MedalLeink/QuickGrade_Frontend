@@ -64,7 +64,7 @@ const LaunchScreen: React.FC = () => {
             </h1>
           </div>
           <p
-            className="text-yellow-400 font-Inter font-normal text-base leading-8 mx-0 mb-8"
+            className="text-yellow-400 font-Inter flex justify-center font-normal text-base leading-8 mx-0 mb-8"
             style={{
               fontFamily: "Inter",
               fontSize: "22px",
@@ -98,7 +98,7 @@ const LaunchScreen: React.FC = () => {
             <br />
             <br />
             <Link to={selectedOption === "option-2" ? "/SignInPage" : "/"}>
-              <button className="w-full h-10 p-2 md:p-3 mt:p-3 border-0 rounded-full text-white bg-blue-800">
+              <button className="w-full border-2 border-blue-800 hover:bg-white hover:text-blue-700 h-12 p-4 md:p-3 mt:p-3 border-0 rounded-full text-white bg-blue-800">
                 Get Started
               </button>
             </Link>
