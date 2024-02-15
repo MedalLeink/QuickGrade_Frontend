@@ -9,7 +9,6 @@ const Footer = () => {
           <span className="text-base font-normal leading-20 tracking-normal text-white">
             QuickGrade Inc. All rights reserved
           </span>
-          {/* Adjust the mx-4 value as needed */}
           <span className="w-[114px] h-[20px] gap-4 flex items-center justify-between">
             <span>Privacy</span>
             <span>Terms</span>
