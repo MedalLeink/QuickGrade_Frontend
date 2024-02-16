@@ -3,6 +3,7 @@ import { HiLockClosed } from "react-icons/hi";
 import SignInImage from "../../public/SigninImage.png";
 import ForgetPassword from "./forgetPassword";
 // import Footer from "./Footer";
+import EnrolledCourses from "./EnrolledCourses";
 
 const SignInPage = () => {
   const title = "Camouflage University";
@@ -196,7 +197,7 @@ const SignInPage = () => {
                 </div>
 
                 <a
-                  href="/forgetPassword"
+                  href="/EnrolledCourses"
                   className="block w-119 h-20 text-red-500 text-xs font-inter fontsize-normal leading-20 tracking-normal text-left mt-2 hover:gray-700 rounded"
                 >
                   Forgot password?
