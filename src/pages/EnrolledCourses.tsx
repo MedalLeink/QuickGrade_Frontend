@@ -25,7 +25,10 @@ const EnrolledCourses = () => {
               <span className="w-166 h-34 font-bold pl-32 text-32 font-inter font-bold leading-45 tracking-0.25 text-left text-white">
                 22/23/08/019
               </span>
-              <span className="w-221 h-88 text-16 font-inter pr-34 font-normal leading-22 tracking-0.15 text-left text-white">
+              <span
+                className="w-221 h-88 text-16 font-inter pr-34 font-normal leading-22 tracking-0.15 text-left text-white"
+                style={{ fontSize: "14px", important: "true" }}
+              >
                 Department of Biochemistry,
                 <br />
                 Faculty of Science, <br />
@@ -89,127 +92,125 @@ const EnrolledCourses = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-[1091px] h-[666px] p-[16px 24px] rounded-16 gap-16 bg-white">
-                <div className="w-[1091px] h-[666px] p-[16px 24px] rounded-16 gap-16 bg-white">
-                  <div className="w-[1043px] h-[45px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mx-auto">
-                    <span className="w-103 h-20 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      Enzymology
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-Center
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
-                      BCH 208
-                    </span>
-                  </div>
-                  <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
-                      BCH 201
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-28">
-                      Nutrition and Diet
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-Center
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
-                      BCH 208
-                    </span>
-                  </div>
-                  <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
-                      BCH 212
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-24">
-                      Blood & Body Fluids
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-Center
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
-                      BCH 208
-                    </span>
-                  </div>
-                  <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
-                      BCH 121
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-20">
-                      DNA / RNA Sequence
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-2 pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-Center
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
-                      BCH 208
-                    </span>
-                  </div>
-                  <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-28">
-                      Chem 212
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-24">
-                      Organic Chemistry
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-4 pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-Center
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
-                      BCH 208
-                    </span>
-                  </div>
-                  <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-28">
-                      BCH 233
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-2 pr-32">
-                      Pharmacology
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-4 pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-Center
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
-                      BCH 208
-                    </span>
-                  </div>
-                  <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto mr-auto">
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-28">
-                      BCH 205
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-20">
-                      Cytochromes Reactivity
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      BCH 208
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-Center
-                    </span>
-                    <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
-                      BCH 208
-                    </span>
-                  </div>
+              <div className="w-[1091px] h-[666px] p-[16px 24px] rounded-16 gap-16 bg-white flex-col justify-center">
+                <div className="w-[1043px] h-[45px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mx-auto">
+                  <span className="w-103 h-20 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
+                    Enzymology
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
+                    Campus E-Center
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
+                    BCH 208
+                  </span>
+                </div>
+                <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
+                    BCH 201
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-28">
+                    Nutrition and Diet
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
+                    Campus E-Center
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
+                    BCH 208
+                  </span>
+                </div>
+                <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
+                    BCH 212
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-24">
+                    Blood & Body Fluids
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
+                    Campus E-Center
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
+                    BCH 208
+                  </span>
+                </div>
+                <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-32">
+                    BCH 121
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-20">
+                    DNA / RNA Sequence
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-2 pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
+                    Campus E-Center
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
+                    BCH 208
+                  </span>
+                </div>
+                <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-28">
+                    Chem 212
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-24">
+                    Organic Chemistry
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-4 pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
+                    Campus E-Center
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
+                    BCH 208
+                  </span>
+                </div>
+                <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto">
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-28">
+                    BCH 233
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-2 pr-32">
+                    Pharmacology
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-4 pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
+                    Campus E-Center
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
+                    BCH 208
+                  </span>
+                </div>
+                <div className="w-[1043px] h-[44px] p-[16px 32px] border border-solid border-[#98A2B3] gap-60 bg-grey-400 mt-4 mx-auto mr-auto">
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-28">
+                    BCH 205
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-20">
+                    Cytochromes Reactivity
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
+                    BCH 208
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
+                    Campus E-Center
+                  </span>
+                  <span className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-8 pr-22">
+                    BCH 208
+                  </span>
                 </div>
               </div>
             </div>
