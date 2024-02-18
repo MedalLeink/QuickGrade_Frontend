@@ -197,7 +197,7 @@ const SignInPage = () => {
                 </div>
 
                 <a
-                  href="/EnrolledCourses"
+                  href="/ForgetPassword"
                   className="block w-119 h-20 text-red-500 text-xs font-inter fontsize-normal leading-20 tracking-normal text-left mt-2 hover:gray-700 rounded"
                 >
                   Forgot password?
