@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import LaunchScreen from "./pages/LaunchScreen";
 import SignInPage from "./pages/SignInPage";
 import ForgetPassword from "./pages/forgetPassword";
+import EnrolledCourses from "./pages/EnrolledCourses";
 import ResetPassword from "./pages/resetPassword"
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/forgetPassword" element={<ForgetPassword />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/navbar" element={<Navbar name={"22/23/07/019"} />} />
+        <Route path="/EnrolledCourses" element={<EnrolledCourses />} />
       </Routes>
     </Router>
   );
