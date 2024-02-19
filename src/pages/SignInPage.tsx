@@ -2,6 +2,7 @@ import React from "react";
 import { HiLockClosed } from "react-icons/hi";
 import SignInImage from "../../public/SigninImage.png";
 import ForgetPassword from "./forgetPassword";
+import { Link } from "react-router-dom";
 // import Footer from "./Footer";
 import EnrolledCourses from "./EnrolledCourses";
 
@@ -155,12 +156,12 @@ const SignInPage = () => {
                     gap: "2px",
                   }}
                 >
-                  Employee ID
+                  Student Registration Number
                 </label>
                 <br />
                 <input
                   type="text"
-                  placeholder="Enter Email"
+                  placeholder="Enter your Registration number"
                   style={{
                     width: "320px",
                     height: "48px",
@@ -192,21 +193,23 @@ const SignInPage = () => {
                   />
                   <HiLockClosed
                     size={18}
-                    className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"
+                    className="absolute mt-3 left-4 top-1/2 transform -translate-y-1/2 text-gray-500"
                   />
                 </div>
 
                 <a
-                  href="/ForgetPassword"
-                  className="block w-119 h-20 text-red-500 text-xs font-inter fontsize-normal leading-20 tracking-normal text-left mt-2 hover:gray-700 rounded"
+                  href="/forgetPassword"
+                  className="block hover:text-red-500 w-119 h-20 text-blue-500 text-s font-inter fontsize-normal leading-20 tracking-normal text-left mt-2 hover:gray-700 rounded"
                 >
                   Forgot password?
                 </a>
               </div>
 
-              <button className="border-2 border-blue-700 w-80 h-12 p-3 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12">
+              <Link to="/StudentDashboard">
+                <button className="border-2 border-blue-700 w-80 h-12 p-3 text-white hover:bg-white hover:text-blue-700 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12">
                 Sign in
               </button>
+              </Link>
             </div>
           </form>
         </div>
