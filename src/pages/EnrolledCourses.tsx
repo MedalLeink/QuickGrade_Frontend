@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Dashboard from "./StudentDashboard"; // Corrected import
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import SessionCalendar from "../components/SessionCalendar";
-import date from "date-fns";
+// import date from "date-fns";
 
 const EnrolledCourses = () => {
   const [selectedOption, setSelectedOption] = useState<string>(""); // Initialize state
@@ -26,8 +25,8 @@ const EnrolledCourses = () => {
                 22/23/08/019
               </span>
               <span
-                className="w-221 h-88 text-16 font-inter pr-34 font-normal leading-22 tracking-0.15 text-left text-white"
-                style={{ fontSize: "14px", important: "true" }}
+                className="w-221 h-88 text-14 font-inter pr-34 font-normal leading-22 tracking-0.15 text-left text-white"
+                // style={{ fontSize: "14px", important: "true" }}
               >
                 Department of Biochemistry,
                 <br />

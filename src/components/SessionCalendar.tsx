@@ -4,7 +4,7 @@ const SessionCalendar = () => {
   const [selectedYear, setSelectedYear] = useState("");
 
   // Function to handle year selection
-  const handleYearChange = (e) => {
+  const handleYearChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
     setSelectedYear(e.target.value);
     // You can perform additional actions based on the selected year if needed
   };

@@ -31,7 +31,7 @@ const ResetPassword = () => {
                             <label className="text-2xl"> Confirm Password</label><br /><br />
                             <input type="text" placeholder="Enter your email" className="w-full h-16 text-lg rounded-full p-6 border"/><br />
                             
-                            <button className="h-16 mt-10 text-white text-xl p-1.5 bg-blue-600 w-full rounded-full">Reset Password</button>
+                            <button className="h-16 mt-10 text-white text-xl p-1.5 border-2 border-blue-600 hover:bg-white hover:text-blue-600 bg-blue-600 w-full rounded-full">Reset Password</button>
                         </form>
                     </div>
                 </div>
