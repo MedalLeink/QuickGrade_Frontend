@@ -4,6 +4,7 @@ import SignInImage from "../../public/SigninImage.png";
 import ForgetPassword from "./forgetPassword";
 import { Link } from "react-router-dom";
 // import Footer from "./Footer";
+import EnrolledCourses from "./EnrolledCourses";
 
 const SignInPage = () => {
   const title = "Camouflage University";
