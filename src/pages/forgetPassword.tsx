@@ -1,4 +1,5 @@
 import logo from "./images/award.png"
+import ResetPassword from "./resetPassword"
 
 const ForgotPassword = () => {
     return(

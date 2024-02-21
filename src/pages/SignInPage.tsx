@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiLockClosed } from "react-icons/hi";
 import SignInImage from "../../public/SigninImage.png";
 import ForgetPassword from "./forgetPassword";
@@ -12,7 +12,6 @@ const SignInPage = () => {
   return (
     <>
       <div className="flex items-center justify-center h-screen">
-        {/* Grey color and image on the left */}
         <div
           className="flex-shrink-0 w-1/2 h-full relative"
           style={{
@@ -42,7 +41,7 @@ const SignInPage = () => {
           {/* Title and Subtitle on top */}
           <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
             <h1
-              className="w-363px h-45px text-4xl font-bold mb-2 font-inter text-red-700"
+              className="w-363px h-45px text-4xl font-bold mb-2 font-inter text-red-600 bg-maroon-700"
               style={{
                 fontFamily: "Inter",
                 fontSize: "32px",
@@ -155,12 +154,12 @@ const SignInPage = () => {
                     gap: "2px",
                   }}
                 >
-                  Employee ID
+                  Student Registration Number
                 </label>
                 <br />
                 <input
                   type="text"
-                  placeholder="Enter Email"
+                  placeholder="Enter your registration number"
                   style={{
                     width: "320px",
                     height: "48px",
@@ -198,13 +197,13 @@ const SignInPage = () => {
 
                 <a
                   href="/ForgetPassword"
-                  className="block w-119 h-20 text-red-500 text-xs font-inter fontsize-normal leading-20 tracking-normal text-left mt-2 hover:gray-700 rounded"
+                  className="block w-119 h-20 text-blue-500 text-xs font-inter fontsize-normal leading-20 tracking-normal text-left mt-2 hover:gray-700 rounded"
                 >
                   Forgot password?
                 </a>
               </div>
 
-              <button className="border-2 border-blue-700 w-80 h-12 p-3 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12">
+              <button className="border-2 border-blue-700 w-80 h-12 p-3 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12 text-white">
                 Sign in
               </button>
             </div>
