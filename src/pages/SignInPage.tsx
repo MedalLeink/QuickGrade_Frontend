@@ -156,7 +156,6 @@ const SignInPage = () => {
                   }}
                 >
                   Student Registration Number
-                  Student Registration Number
                 </label>
                 <br />
                 <input
