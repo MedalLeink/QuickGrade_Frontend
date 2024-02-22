@@ -20,12 +20,12 @@ function StudentDashboard() {
             </p>
           </div>
           {/* Department */}
-          <div className="border-9 rounded-[16px] h-[150px] w-[1100px] bg-purple-50 mr-[156px] text-white flex justify-around items-center">
+          <div className="border-9 rounded-[16px] h-[150px] w-[1100px] bg-[#3746F5] mr-[156px] text-white flex justify-around items-center">
             <div>
-              <p className="ml-[50px] text-lg font-bold">22/23/08/019</p>
+              <p className="ml-[50px] text-lg font-inter font-bold">22/23/08/019</p>
             </div>
             <div>
-              <p className="text-lg font-bold">
+              <p className="text-lg font-inter font-bold">
                 Department of Biochemistry.
                 <br /> Faculty of Science.
                 <br />
@@ -40,15 +40,15 @@ function StudentDashboard() {
             {/* 2022/2023 */}
             <div className="pt-9">
               <div className="flex">
-                <div className="text-gray-500 font-bold font-custom my-4 w-1/4 whitespace-nowrap">
+                <div className="font-inter text-gray-500 font-bold font-custom my-4 w-1/4 whitespace-nowrap">
                   Semester: Second
-                  <ChevronDownIcon
+                  {/* <ChevronDownIcon
                     className="h-5 w-5 text-gray-400"
                     aria-hidden="false"
-                  />
+                  /> */}
                 </div>
                 <div className="text-gray-500 w-[50%] font-bold font-custom my-4 w-1/4 whitespace-nowrap">
-                  <p>
+                  <p className="flex font-inter">
                     Session: 2022/2023{" "}
                     <ChevronDownIcon
                       className="h-5 w-5 text-gray-400"
@@ -56,30 +56,50 @@ function StudentDashboard() {
                     />
                   </p>
                 </div>
+                <div className="text-gray-500 w-[50%] font-bold font-custom my-4 w-1/4 whitespace-nowrap">
+                  <p className="flex font-inter">
+                    Total Units: 18
+                    {/* <ChevronDownIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    /> */}
+                  </p>
+                </div>
+                {/* <div className="text-gray-500 w-[50%] font-bold font-custom my-4 w-1/4 whitespace-nowrap">
+                  <p className="flex">
+                    Total Units Used: 23
+                    <ChevronDownIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                  </p>
+                </div> */}
               </div>
 
-              <div>
-                <table className="">
-                    <thead>
-                      <tr className="flex justify-between gap-[200px]">
-                        <th className="">Course Code </th>
-                        <th>Course Title</th>
-                        <th>Credit Unit</th>
-                        <th></th>
-                      </tr>
-                    </thead>
+              <div className="mt-[50px] flex justify-between">
+                <table className="w-[100%]">
+                  <thead className="">
+                    <tr className="flex justify-between w-[100%]">
+                      <th className="font-inter">Course Code </th>
+                      <th className="font-inter">Course Title</th>
+                      <th className="font-inter">Credit Unit</th>
+                      <th className="font-inter">Department</th>
+                      <th className="font-inter">Action</th>
+                    </tr>
+                  </thead>
                   <tbody>
-                      <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-5">
-                        <td>BCH 208</td>
-                        <td>Enzymology</td>
-                        <td>5 Units</td>
-                        <Button
-                          title={"Enroll"}
-                          text={"purple-50"}
-                          bg={"purple-50"}
-                          type={""}
-                        />
-                      </tr>
+                    <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-5">
+                      <td className="font-inter">BCH 208</td>
+                      <td className="font-inter">Enzymology</td>
+                      <td className="font-inter">5 Units</td>
+                      <td className="font-inter">Mathematics</td>
+                      <Button
+                        title={"Enroll"}
+                        text={"purple-50"}
+                        bg={"purple-50"}
+                        type={""}
+                      />
+                    </tr>
                   </tbody>
                 </table>
               </div>
