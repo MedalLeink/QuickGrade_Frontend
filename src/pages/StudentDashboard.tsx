@@ -39,15 +39,11 @@ function StudentDashboard() {
           <div>
             {/* 2022/2023 */}
             <div className="pt-9">
-              <div className="flex">
-                <div className="font-inter text-gray-500 font-bold font-custom my-4 w-1/4 whitespace-nowrap">
+              <div className="flex justify-between">
+                <div className="font-inter text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
                   Semester: Second
-                  {/* <ChevronDownIcon
-                    className="h-5 w-5 text-gray-400"
-                    aria-hidden="false"
-                  /> */}
                 </div>
-                <div className="text-gray-500 w-[50%] font-bold font-custom my-4 w-1/4 whitespace-nowrap">
+                <div className="text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
                   <p className="flex font-inter">
                     Session: 2022/2023{" "}
                     <ChevronDownIcon
@@ -56,49 +52,42 @@ function StudentDashboard() {
                     />
                   </p>
                 </div>
-                <div className="text-gray-500 w-[50%] font-bold font-custom my-4 w-1/4 whitespace-nowrap">
+                <div className="text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
                   <p className="flex font-inter">
                     Total Units: 18
-                    {/* <ChevronDownIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    /> */}
                   </p>
                 </div>
-                {/* <div className="text-gray-500 w-[50%] font-bold font-custom my-4 w-1/4 whitespace-nowrap">
+                <div className="text-gray-500 font-bold font-custom my-4 w-1/4 whitespace-nowrap">
                   <p className="flex">
-                    Total Units Used: 23
-                    <ChevronDownIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    />
+                    Total Units Used: 5
                   </p>
-                </div> */}
+                </div>
               </div>
 
-              <div className="mt-[50px] flex justify-between">
+              <div className="">
                 <table className="w-[100%]">
                   <thead className="">
-                    <tr className="flex justify-between w-[100%]">
-                      <th className="font-inter">Course Code </th>
-                      <th className="font-inter">Course Title</th>
-                      <th className="font-inter">Credit Unit</th>
-                      <th className="font-inter">Department</th>
-                      <th className="font-inter">Action</th>
+                    <tr className="">
+                      <th className="text-start text-lg px-6 py-3">Course Code </th>
+                      <th className="text-start text-lg px-6 py-3">Course Title</th>
+                      <th className="text-start text-lg px-6 py-3">Credit Unit</th>
+                      <th className="text-start text-lg px-6 py-3">Department</th>
+                      {/* <th className="text-start text-lg px-6 py-3">Action</th> */}
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-5">
-                      <td className="font-inter">BCH 208</td>
-                      <td className="font-inter">Enzymology</td>
-                      <td className="font-inter">5 Units</td>
-                      <td className="font-inter">Mathematics</td>
-                      <Button
-                        title={"Enroll"}
-                        text={"purple-50"}
-                        bg={"purple-50"}
-                        type={""}
-                      />
+                  <tbody className="">
+                    <tr className="border-2">
+                      <td className="text-lg px-6 py-3">BCH 208</td>
+                      <td className="text-lg px-6 py-3">Enzymology</td>
+                      <td className="text-lg px-6 py-3">5 Units</td>
+                      <td className="text-lg px-6 py-3">Mathematics</td>
+                      <div className="h-16 flex items-center justify-center">
+                        <Button
+                          title={"Enroll"}
+                          text={"white"}
+                          bg={"blue"}
+                        />
+                      </div>
                     </tr>
                   </tbody>
                 </table>
