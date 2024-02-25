@@ -90,8 +90,14 @@ function Sidebar() {
                     </div>
                 </div>
             </div>
+            <button className="font-inter text-white text-[20px] font-extralight">
+              <Link to={""}>Logout</Link>
+            </button>
+          </div>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
 export default Sidebar;

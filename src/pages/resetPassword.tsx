@@ -16,7 +16,12 @@ const ResetPassword = () => {
                 <div className=" w-1/2 shadow p-10">
                     <div className="">
                         <div className="flex justify-center">
-                            <h1 className="text-4xl "> Reset Password </h1>
+                        <a
+                  href="/ForgetPassword"
+                  className="block w-119 h-20 text-blue-500 text-xs font-inter fontsize-normal leading-20 tracking-normal text-left mt-2 hover:gray-700 rounded"
+                >
+                  Forgot password?
+                </a>
                         </div>
                         
                         {/* <p className="text-xl mt-10">Enter the email associated with your account and we’ll send an email with instruction to reset your password</p> */}

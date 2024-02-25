@@ -1,10 +1,10 @@
 import React from "react";
 import { HiLockClosed } from "react-icons/hi";
 import SignInImage from "../../public/SigninImage.png";
-import ForgetPassword from "./forgetPassword";
+// import ForgetPassword from "./forgetPassword";
 import { Link } from "react-router-dom";
 // import Footer from "./Footer";
-import EnrolledCourses from "./EnrolledCourses";
+// import EnrolledCourses from "./EnrolledCourses";
 
 const SignInPage = () => {
   const title = "Camouflage University";
@@ -13,7 +13,6 @@ const SignInPage = () => {
   return (
     <>
       <div className="flex items-center justify-center h-screen">
-        {/* Grey color and image on the left */}
         <div
           className="flex-shrink-0 w-1/2 h-full relative"
           style={{
@@ -43,7 +42,7 @@ const SignInPage = () => {
           {/* Title and Subtitle on top */}
           <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
             <h1
-              className="w-363px h-45px text-4xl font-bold mb-2 font-inter text-red-700"
+              className="w-363px h-45px text-4xl font-bold mb-2 font-inter text-red-600 bg-maroon-700"
               style={{
                 fontFamily: "Inter",
                 fontSize: "32px",
@@ -206,7 +205,7 @@ const SignInPage = () => {
               </div>
 
               <Link to="/StudentDashboard">
-                <button className="border-2 border-blue-700 w-80 h-12 p-3 text-white hover:bg-white hover:text-blue-700 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12">
+                <button className="border-2 border-blue-700 w-80 h-12 p-3 text-white hover:bg-white hover:text-blue-700 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12 text-white">
                 Sign in
               </button>
               </Link>
