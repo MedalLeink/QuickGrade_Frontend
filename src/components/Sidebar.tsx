@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { IoIosSettings } from "react-icons/io";
 import { FaLock } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
 import { RxDashboard } from "react-icons/rx";
 import { GiStairs } from "react-icons/gi";
+// import { useState } from "react";
 
 function Sidebar() {
     return (
@@ -16,48 +17,75 @@ function Sidebar() {
                 </div>
                 <div className="my-5 h-[2px] bg-black"></div>
                 <button className="font-inter text-white text-[20px]">
-                    <Link to={""}>Overview</Link>
+                    <NavLink to={""}>Overview</NavLink>
                 </button>
-                <div className="pl-5 pt-8">
+                {/* <div className="pl-5 pt-8">
                     <div className="flex gap-2">
-                        <div className="pt-2 text-grey-300"><RxDashboard /></div>
+                        <div className="py-2"><RxDashboard className="rounded text-white "/></div>
                         <button className="font-inter text-white text-[20px] font-extralight">
-                            <Link to={""}>Dashboard</Link>
+                            <NavLink 
+                                to={"/StudentDashboard"}
+                                style={({ isActive }) => {
+                                    return {
+                                        // fontWeight: isActive ? "bold" : "",
+                                        backgroundColor: isActive ? "white" : "blue",
+                                        color: isActive ? "blue" : "white"
+                                        // color: isPending ? "red" : "black",
+                                        // viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >
+                                Dashboard
+                            </NavLink>
                         </button>
                     </div>
-                </div>
-                <div className="pl-5 pt-8">
+                </div> */}
+                {/* <div className="pl-5 pt-8 flex gap-2"> */}
+                <NavLink to="/StudentDashboard" className="pl-5 pt-8 flex gap-2" style={({ isActive }) => { return { backgroundColor: isActive ? "white" : "blue", color: isActive ? "blue" : "white"};}}>
+                    {/* {({ isActive }) => ( */}
+                        <span className="py-2"><RxDashboard className="rounded"></RxDashboard></span>
+                        <span className="text-[20px] font-extralight">Dashboard</span>
+                    {/* )} */}
+                </NavLink>
+                {/* </div> */}
+                {/* <div className="pl-5 pt-8">
                     <div className="flex gap-2">
-                        <div className="pt-2 text-grey-300"><FaBookOpen /></div>
+                        <div className="py-2"><FaBookOpen className="p-0.5 rounded text-white bg-[#8265F7]"/></div>
                         <button className="font-inter text-white text-[20px] font-extralight">
-                            <Link to={""}>Enrolled courses</Link>
+                            <NavLink to={"/EnrolledCourses"}>Enrolled courses</NavLink>
                         </button>
                     </div>
-                </div>
+                </div> */}
+                <NavLink to="/EnrolledCourses" className="pl-5 pt-8 flex gap-2" style={({ isActive }) => { return { backgroundColor: isActive ? "white" : "blue", color: isActive ? "blue" : "white"};}}>
+                    {/* {({ isActive }) => ( */}
+                        <span className="py-2"><FaBookOpen className="p-0.5 rounded text-white bg-[#8265F7]"/></span>
+                        <span className="text-[20px] font-extralight">Enrolled Courses</span>
+                    {/* )} */}
+                </NavLink>
                 <div className="pl-5 pt-8">
                     <div className="flex gap-2">
-                        <div className="pt-2 text-grey-300"><GiStairs /></div>
+                        <div className="py-2"><GiStairs className="p-0.5 rounded text-white bg-[#8265F7]"/></div>
                         <button className="font-inter text-white text-[20px] font-extralight">
-                            <Link to={""}>Results</Link>
+                            <NavLink to={""}>Results</NavLink>
                         </button>
                     </div>
                 </div>
                 <button className="font-inter pt-8 text-white text-[20px]">
-                    <Link to={""}>Others</Link>
+                    <NavLink to={""}>Others</NavLink>
                 </button>
                 <div className="pl-5 pt-8">
                     <div className="flex gap-2">
-                        <div className="pt-2 text-grey-300"><IoIosSettings /></div>
+                        <div className="py-2"><IoIosSettings className="text-white"/></div>
                         <button className="font-inter text-white text-[20px] font-extralight">
-                            <Link to={""}>Settings</Link>
+                            <NavLink to={""}>Settings</NavLink>
                         </button>
                     </div>
                 </div>
                 <div className="pl-5 pt-8">
                     <div className="flex gap-2">
-                        <div className="pt-2 text-grey-300"><RiLogoutCircleRLine /></div>
+                        <div className="py-2"><RiLogoutCircleRLine className="text-white"/></div>
                         <button className="font-inter text-white text-[20px] font-extralight">
-                            <Link to={""}>Logout</Link>
+                            <NavLink to={""}>Logout</NavLink>
                         </button>
                     </div>
                 </div>
