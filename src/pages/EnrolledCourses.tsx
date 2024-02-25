@@ -66,16 +66,16 @@ const EnrolledCourses = () => {
             <div className="w-1091 h-582 -mt-32 mx-auto">
               <table className="overflow-hidden w-full bg-white p-[16px 32px]">
                 <thead className="flex justify-between w-full h-[54px] p-[16px 32px] gap-60px items-center bg-blue-50 bg-opacity-50">
-                  <th className="w-103 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl-10 pr-2">
+                  <th className="w-103 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl-14">
                     Course Code
                   </th>
-                  <th className="w-200 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pr-12">
+                  <th className="w-200 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pr-2">
                     Course Title
                   </th>
-                  <th className="w-200 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl-12 pr-14">
+                  <th className="w-200 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl-12 pr-10">
                     Department
                   </th>
-                  <th className="w-136 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl-2 pr-20">
+                  <th className="w-136 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl- pr-4">
                     Venue
                   </th>
                   <th className="w-200 h-22 font-inter text-16 font-bold leading-22 tracking-0.15 text-left text-black pl-2 pr-20">
@@ -87,11 +87,11 @@ const EnrolledCourses = () => {
             <div>
               <table className="rounded-s overflow-hidden w-full bg-white p-[16px 32px] pb-8 border border-r-8 border-l-8">
                 <tbody className="bg-white rounded-md overflow-hidden -mt-2">
-                  <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-2 mb-2">
+                  <tr className="flex items-center justify-between pl-[42px] p-[8px] border-2 whitespace-nowrap mt-2 mb-2">
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-5">
                       BCH 208
                     </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl- pr-5">
+                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-6 pr-2">
                       Enzymology
                     </td>
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-14 pr-6">
@@ -104,7 +104,7 @@ const EnrolledCourses = () => {
                       Expired
                     </td>
                   </tr>
-                  <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-3">
+                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
                       BCH 201
                     </td>
@@ -121,7 +121,7 @@ const EnrolledCourses = () => {
                       Take Exam
                     </td>
                   </tr>
-                  <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-3">
+                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
                       BCH 212
                     </td>
@@ -138,7 +138,7 @@ const EnrolledCourses = () => {
                       Take Exam
                     </td>
                   </tr>
-                  <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-3">
+                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
                       BCH 121
                     </td>
@@ -155,7 +155,7 @@ const EnrolledCourses = () => {
                       Unavailable
                     </td>
                   </tr>
-                  <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-3">
+                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
                       CHM 212
                     </td>
@@ -172,7 +172,7 @@ const EnrolledCourses = () => {
                       Unavailable
                     </td>
                   </tr>
-                  <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-3">
+                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
                       BCH 233
                     </td>
@@ -189,7 +189,7 @@ const EnrolledCourses = () => {
                       Unavailable
                     </td>
                   </tr>
-                  <tr className="flex items-center justify-between pl-[40px] p-[10px] border-2 whitespace-nowrap mt-3">
+                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
                     <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
                       BCH 205
                     </td>
