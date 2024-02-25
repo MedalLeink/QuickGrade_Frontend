@@ -13,7 +13,7 @@ export default {
 
       },
         fontFamily:{
-          inter:["Inter"]
+          'primary': ['Inter']
         },
        
     },
