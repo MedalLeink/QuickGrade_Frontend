@@ -149,17 +149,21 @@ const EnrolledCourses = () => {
                 <table className="w-full flex flex-col">
                   <thead className="w-[90%]">
                     <tr className="w-[100%] flex justify-between items-center">
-                      <th className="text-start text-lg px-6 py-3">
+                      <th className="text-start text-lg px-6 py-3 pl-16 pr-1">
                         Course Code{" "}
                       </th>
-                      <th className="text-start text-lg px-6 py-3">
+                      <th className="text-start text-lg px-6 py-3 pl-2 pr-2">
                         Course Title
                       </th>
-                      <th className="text-start text-lg px-6 py-3">
+                      <th className="text-start text-lg px-6 py-3 pl-2 pr-1">
                         Department
                       </th>
-                      <th className="text-start text-lg px-6 py-3">Venue</th>
-                      <th className="text-start text-lg px-6 py-3">Status</th>
+                      <th className="text-start text-lg px-6 py-3 pl-4">
+                        Venue
+                      </th>
+                      <th className="text-start text-lg px-6 py-3 pr-1">
+                        Status
+                      </th>
                     </tr>
                   </thead>
                   <div className="bg-white">
