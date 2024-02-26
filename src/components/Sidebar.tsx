@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { IoIosSettings } from "react-icons/io";
 import { FaLock } from "react-icons/fa";
@@ -94,9 +94,9 @@ function Sidebar() {
               <Link to={""}>Logout</Link>
             </button>
           </div>
-        </div>
-      </div>
-    </div>
+    //     </div>
+    //   </div>
+    // </div>
   );
 }
 
