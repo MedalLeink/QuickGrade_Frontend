@@ -9,15 +9,15 @@ const EnrolledCourses = () => {
 
   return (
     <div className="flex h-screen">
-      <Sidebar />
+        <Sidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Navbar name={"22/23/08/019"} />
-        <div className="p-8 h-full bg-blue-50 bg-opacity-50">
+        <div className="p-8 h-full bg-blue-50 ml-[300px] mt-[90px] bg-opacity-50">
           <h2 className="w-272 h-6 -mt-3 font-Inter font-bold text-2xl leading-9 tracking-wide text-left text-black">
             Enrolled Courses
           </h2>
           <div
-            className="w-1009 h-22 mt-8 p-4 bg-[#3746F5] rounded-xl bg-opacity-90"
+            className="w-1009 h-22 mt-8 p-4 bg-[#2D00F7] rounded-xl bg-opacity-90"
             style={{ marginRight: "70px" }}
           >
             <div className="w-[927px] h-[88px] top-16 left-41 pb-8 pt-8 md:p-120 gap-300 flex items-center justify-between">

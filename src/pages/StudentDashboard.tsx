@@ -157,22 +157,20 @@ function StudentDashboard() {
   ]);
 
   return (
-    <div>
-      <div className="fixed left-0">
+    <div className="bg-[#F9FAFB]">
         <Sidebar />
-      </div>
       <Navbar name={"Benn"} />
-      <div className="ml-40">
+      <div className="ml-[200px]">
         {/* The middle section */}
-        <div className=" w-[1000px] mt-[50px] ml-[120px]">
+        <div className=" w-[1000px] mt-[90px] ml-[120px] bg-[#F9FAFB]">
           {/* The Dashboard */}
           <div className="w-[173px] h-[45px] leading-[44.8px]">
-            <p className="font-inter font-bold text-lg font-[700] text-[32px]">
+            <h2 className="font-inter font-bold text-2xl">
               Dashboard
-            </p>
+            </h2>
           </div>
           {/* Department */}
-          <div className="border-9 rounded-[16px] h-[150px] w-[1100px] bg-[#3746F5] mr-[156px] text-white flex justify-around items-center">
+          <div className="border-9 rounded-[16px] h-[150px] w-[1100px] bg-[#2D00F7] mr-[156px] text-white flex justify-around items-center">
             <div>
               <p className="ml-[50px] text-lg font-inter font-bold">
                 22/23/08/019
@@ -235,11 +233,11 @@ function StudentDashboard() {
                           <th className="text-start text-lg px-6 py-3"></th>
                         </tr>
                       </thead>
-
+                      <div className="bg-white">
                       {courses.map((course, index) => (
                         <tbody
                           key={index}
-                          className="mb-[10px] border-2 flex justify-around hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
+                          className="mb-[10px] rounded-lg  border-2 flex justify-around hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
                         >
                           <tr
                             onClick={() => handleCourseDetailsModal(course)}
@@ -264,18 +262,19 @@ function StudentDashboard() {
                             <Button
                               title={"Enroll"}
                               text={"white"}
-                              bg={"blue"}
+                              bg={"#2D00F7"}
                               onClick={() => handleEnroll(course)}
                             />
                           </td>
                         </tbody>
                       ))}
+                      </div>
                     </table>
                   </div>
                 </div>
               </div>
               {firstEnrollment.length ? (
-                <div className="w-[30%] flex flex-col justify-start pt-[20px] h-[370px] rounded items-center bg-gray-100">
+                <div className="w-[28%] flex flex-col justify-start pt-[20px] h-[370px] rounded items-center bg-gray-100">
                     <div className="mb-[20px] font-bold text-lg">
                       Selected Courses ({courseCount})
                     </div>
@@ -294,7 +293,7 @@ function StudentDashboard() {
                                 <td>{`${enrolled.unit} Units`}</td>
                                 <td className="">
                                   <Button
-                                    title={"Unenroll"}
+                                    title={"Remove"}
                                     text={"white"}
                                     bg={"red"}
                                     onClick={() =>
@@ -319,7 +318,7 @@ function StudentDashboard() {
                     <Button
                       title={"Submit Courses"}
                       text={"white"}
-                      bg={"blue"}
+                      bg={"#2D00F7"}
                     />
                   </div>
                 </div>
