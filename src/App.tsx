@@ -6,11 +6,14 @@ import LaunchScreen from "./pages/LaunchScreen";
 import SignInPage from "./pages/SignInPage";
 import ForgetPassword from "./pages/forgetPassword";
 import EnrolledCourses from "./pages/EnrolledCourses";
-import ResetPassword from "./pages/resetPassword"
+import ResetPassword from "./pages/resetPassword";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <Router>
+       <ToastContainer />
        <Routes>
         <Route path="/StudentDashboard" element={<StudentDashboard />}/>
         <Route path="/" element={<LaunchScreen />} />

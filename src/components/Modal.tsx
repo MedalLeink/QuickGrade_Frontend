@@ -29,7 +29,7 @@ export const Modal: React.FC<ModalProps> = ({ onClose, children, buttons }) => {
               onClick={button.onClick}
             />
           ))}
-        <Button title="Close" bg="#27AE60" text="white" onClick={onClose} />
+        <Button title="Close" bg="blue" text="white" onClick={onClose} />
         </div>
       </div>
     </div>
