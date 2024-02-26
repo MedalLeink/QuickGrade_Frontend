@@ -2,14 +2,111 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import SessionCalendar from "../components/SessionCalendar";
+import Modal from "../components/Modal";
 // import date from "date-fns";
 
 const EnrolledCourses = () => {
-  const [selectedOption, setSelectedOption] = useState<string>(""); // Initialize state
+  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [showCourseModal, setShowCourseModal] = useState(false);
+  const [modalCoures, setModalCourses] = useState<any>();
+
+  const handleCourseDetailsModal = (course: any) => {
+    setModalCourses(course);
+    return setShowCourseModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalCourses([]);
+    return setShowCourseModal(false);
+  };
+
+  const [courses, setCourses] = useState([
+    {
+      code: "BSC 100",
+      title: "Biochemistry of Diseases",
+      unit: 5,
+      dept: "Biochemistry of Education that has all the itrigues of life embedded in it. We have it here guys fhjsygg oiygejeb oicga ig wuyhegboijc yab aoiurg tc hgudhg icusoiurgc",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Expired",
+    },
+    {
+      code: "MAT 100",
+      title: "Biochemistry of Diseases",
+      unit: 5,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Expired",
+    },
+    {
+      code: "MBN 100",
+      title: "Biochemistry of Diseases",
+      unit: 3,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Expired",
+    },
+    {
+      code: "PHE 100",
+      title: "Biochemistry of Diseases",
+      unit: 2,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Unavailable",
+    },
+    {
+      code: "KQY 100",
+      title: "Biochemistry of Diseases",
+      unit: 5,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Unavailable",
+    },
+    {
+      code: "BUT 100",
+      title: "Biochemistry of Diseases",
+      unit: 2,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Unavailable",
+    },
+    {
+      code: "KUT 100",
+      title: "Biochemistry of Diseases",
+      unit: 3,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Unavailable",
+    },
+    {
+      code: "MUT 100",
+      title: "Biochemistry of Diseases",
+      unit: 5,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Take Exam",
+    },
+    {
+      code: "BYC 100",
+      title: "Biochemistry of Diseases",
+      unit: 3,
+      dept: "Biochemistry of Education",
+      lecturer: "Prof Albert",
+      venue: "Hall 600",
+      status: "Take Exam",
+    },
+  ]);
 
   return (
-    <div className="flex h-screen">
-        <Sidebar />
+    <div className="flex">
+      <Sidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
         <Navbar name={"22/23/08/019"} />
         <div className="p-8 h-full bg-blue-50 ml-[300px] mt-[90px] bg-opacity-50">
@@ -32,189 +129,138 @@ const EnrolledCourses = () => {
               </span>
             </div>
           </div>
-          <div className="w-1091 h-642 top-168 gap-16">
-            <span className="w-590 h-44 mt-3 gap-24 flex">
-              <span
-                className="w-121 h-10 font-inter text-24 font-bold leading-34 tracking-0 text-left"
+          <div className="w-1091">
+            <div className="w-590 mt-8 gap-24 flex">
+              <div
+                className="w-121 mt-4  h-10 font-inter text-24 font-bold leading-34 tracking-0 text-left"
                 style={{ color: "#667085" }}
               >
-                Semester:
-                <select
-                  name="semester"
-                  id="semester"
-                  className="w-150 h-34 gap-8 p-2 rounded-md font-Inter font-bold text-24 leading-34 text-left bg-blue-50 bg-opacity-50"
-                  style={{ color: "#667085" }}
-                  value={selectedOption} // Set value attribute for controlled component
-                  onChange={(e) => setSelectedOption(e.target.value)}
-                >
-                  <option
-                    value="option-1"
-                    className="w-90 h-34 font-inter font-bold text-24 leading-34"
-                  >
-                    First
-                  </option>
-                  <option value="option-2">Second</option>
-                </select>
-              </span>
+                Semester: Second
+              </div>
               <div className="flex items-center gap-8 ">
-                <span className="w-295 h-44">
+                <span className="w-295">
                   <SessionCalendar />
                 </span>
               </div>
-            </span>
-
-            <div className="w-1091 h-582 -mt-32 mx-auto">
-              <table className="overflow-hidden w-full bg-white p-[16px 32px]">
-                <thead className="flex justify-between w-full h-[54px] p-[16px 32px] gap-60px items-center bg-blue-50 bg-opacity-50">
-                  <th className="w-103 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl-14">
-                    Course Code
-                  </th>
-                  <th className="w-200 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pr-2">
-                    Course Title
-                  </th>
-                  <th className="w-200 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl-12 pr-10">
-                    Department
-                  </th>
-                  <th className="w-136 h-22 text-base font-bold font-inter leading-22 tracking-wider text-left text-black pl- pr-4">
-                    Venue
-                  </th>
-                  <th className="w-200 h-22 font-inter text-16 font-bold leading-22 tracking-0.15 text-left text-black pl-2 pr-20">
-                    Status
-                  </th>
-                </thead>
-              </table>
             </div>
-            <div>
-              <table className="rounded-s overflow-hidden w-full bg-white p-[16px 32px] pb-8 border border-r-8 border-l-8">
-                <tbody className="bg-white rounded-md overflow-hidden -mt-2">
-                  <tr className="flex items-center justify-between pl-[42px] p-[8px] border-2 whitespace-nowrap mt-2 mb-2">
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-5">
-                      BCH 208
-                    </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-6 pr-2">
-                      Enzymology
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-14 pr-6">
-                      Biochemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-">
-                      Campus E-center
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-18 pr-20 text-red-600">
-                      Expired
-                    </td>
-                  </tr>
-                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
-                      BCH 201
-                    </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-2 pr-20">
-                      Nutrition and Diet
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      Biochemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-center
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-8 pr-22 text-green-600">
-                      Take Exam
-                    </td>
-                  </tr>
-                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
-                      BCH 212
-                    </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-8 pr-16">
-                      Blood & Body Fluids
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      Biochemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-center
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-8 pr-22 text-gray-400">
-                      Take Exam
-                    </td>
-                  </tr>
-                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
-                      BCH 121
-                    </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-10 pr-16">
-                      DNA / RNA Sequence
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      Biochemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-center
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-8 pr-22 text-gray-400">
-                      Unavailable
-                    </td>
-                  </tr>
-                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
-                      CHM 212
-                    </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-6 pr-16">
-                      Organic Chemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      Biochemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-center
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-8 pr-22 text-gray-400">
-                      Unavailable
-                    </td>
-                  </tr>
-                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
-                      BCH 233
-                    </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-2 pr-16">
-                      Pharmacology
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      Biochemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-center
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-8 pr-22 text-gray-400">
-                      Unavailable
-                    </td>
-                  </tr>
-                  <tr className="flex items-center justify-between pl-[42px] p-[10px] border-2 whitespace-nowrap mt-3">
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-16">
-                      BCH 205
-                    </td>
-                    <td className="w-200 h-22 text-base font-inter leading-22 tracking-wider text-left text-black pl-6 pr-16">
-                      Cytochromes Reactivity
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-32">
-                      Biochemistry
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pl-6 pr-20">
-                      Campus E-center
-                    </td>
-                    <td className="w-103 h-22 font-inter text-16 font-normal leading-22 tracking-0.15 text-left text-black pr-8 pr-22 text-red-600">
-                      Expired
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+
+            <div className="flex justify-between w-full mt-[20px] mb-[50px]">
+              <div className="w-[100%]">
+                <table className="w-full flex flex-col">
+                  <thead className="w-[90%]">
+                    <tr className="w-[100%] flex justify-between items-center">
+                      <th className="text-start text-lg px-6 py-3">
+                        Course Code{" "}
+                      </th>
+                      <th className="text-start text-lg px-6 py-3">
+                        Course Title
+                      </th>
+                      <th className="text-start text-lg px-6 py-3">
+                        Department
+                      </th>
+                      <th className="text-start text-lg px-6 py-3">Venue</th>
+                      <th className="text-start text-lg px-6 py-3">Status</th>
+                    </tr>
+                  </thead>
+                  <div className="bg-white">
+                    {courses.map((course, index) => (
+                      <tbody
+                        key={index}
+                        className="mb-[10px] w-full  border-2 flex justify-center hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
+                      >
+                        <tr
+                          onClick={() => handleCourseDetailsModal(course)}
+                          className="w-[100%] flex p-[5px] justify-around items-center"
+                        >
+                          <td className="text-lg py-3 w-[95px]">
+                            {course.code}
+                          </td>
+                          <td className="text-lg py-3 w-[95px]">
+                            {course.title.length > 12
+                              ? `${course.title.substring(0, 12)}...`
+                              : course.title}
+                          </td>
+                          <td className="text-lg py-3 w-[95px]">
+                            {course.dept.length > 12
+                              ? `${course.dept.substring(0, 12)}...`
+                              : course.dept}
+                          </td>
+                          <td className="text-lg py-3 w-[80px]">
+                            {course.venue}
+                          </td>
+                          <td
+                            className={`text-lg py-3 w-[95px] ${
+                              course.status === "Expired"
+                                ? "text-red-500"
+                                : course.status === "Unavailable"
+                                ? "text-gray-500"
+                                : "text-green-500"
+                            }`}
+                          >
+                            {course.status}
+                          </td>
+                        </tr>
+                      </tbody>
+                    ))}
+                  </div>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      {showCourseModal && (
+        <Modal onClose={handleCloseModal}>
+          <div className="mb-[20px] flex flex-col justify-center items-center bg-gray-200 w-full h-[350px] overflow-y-scroll">
+            <label className="mb-[20px] mt-[10px] font-bold text-xl">
+              COURSE DETAILS
+            </label>
+            <div className="flex justify-center items-center w-full">
+              <div className="flex flex-col p-[10px] w-full gap-[20px] h-[300px] overflow-y-scroll">
+                <div>
+                  <span className="font-bold text-lg">Course Code: </span>
+                  {modalCoures.code}
+                </div>
+                <div>
+                  <span className="font-bold text-lg">Course Title: </span>
+                  {modalCoures.title}
+                </div>
+                <div>
+                  <span className="font-bold text-lg">Credit Unit: </span>
+                  {modalCoures.unit} units
+                </div>
+                <div>
+                  <span className="font-bold text-lg">Lecturer Name: </span>
+                  {modalCoures.lecturer}
+                </div>
+                <div>
+                  <span className="font-bold text-lg">Department: </span>
+                  {modalCoures.dept}
+                </div>
+                <div>
+                  <span className="font-bold text-lg">Exam Venue: </span>
+                  {modalCoures.venue}
+                </div>
+                <div>
+                  <span className={`font-bold text-lg`}>Course Status: </span>
+                  <span
+                    className={`${
+                      modalCoures.status === "Expired"
+                        ? "text-red-500"
+                        : modalCoures.status === "Unavailable"
+                        ? "text-gray-500"
+                        : "text-green-500"
+                    }`}
+                  >
+                    {modalCoures.status}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Modal>
+      )}
     </div>
-    //   </div>
-    // </div>
   );
 };
 

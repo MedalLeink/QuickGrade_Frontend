@@ -213,7 +213,7 @@ function StudentDashboard() {
                   </div>
                 </div>
 
-                <div className="flex justify-between w-[770px] h-[500px] overflow-y-scroll">
+                <div className="flex justify-between w-[770px] h-[500px] mb-[50px] overflow-y-scroll">
                   <div className="w-[100%]">
                     <table className="w-full flex flex-col">
                       <thead className="w-[90%]">
