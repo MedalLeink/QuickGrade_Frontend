@@ -274,8 +274,8 @@ function StudentDashboard() {
                 </div>
               </div>
               {firstEnrollment.length ? (
-                <div className="w-[28%] flex flex-col justify-start pt-[20px] h-[370px] rounded items-center bg-gray-100">
-                    <div className="mb-[20px] font-bold text-lg">
+                <div className="w-[28%] flex flex-col justify-start h-[370px] rounded items-center bg-gray-100">
+                    <div className="mb-[10px] font-bold text-lg h-[100px] bg-gray-200 w-full flex text-center items-center justify-center">
                       Selected Courses ({courseCount})
                     </div>
                   <div className="w-[100%] h-[300px] flex flex-col items-center overflow-y-scroll">
