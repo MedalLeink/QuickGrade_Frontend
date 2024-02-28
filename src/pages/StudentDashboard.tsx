@@ -191,7 +191,7 @@ function StudentDashboard() {
           <div className="">
             {/* 2022/2023 */}
             <div className="pt-9 flex w-[1120px]">
-              <div className="w-[70%]">
+              <div className="w-full">
                 <div className="flex justify-between">
                   <div className="font-inter text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
                     Semester: Second
@@ -213,11 +213,11 @@ function StudentDashboard() {
                   </div>
                 </div>
 
-                <div className="flex justify-between w-[770px] h-[500px] mb-[50px] overflow-y-scroll">
+                <div className="flex justify-between w-[95%] h-[500px] mb-[50px] overflow-y-scroll">
                   <div className="w-[100%]">
                     <table className="w-full flex flex-col">
                       <thead className="w-[90%]">
-                        <tr className="w-[100%] flex justify-between items-center">
+                        <tr className="w-[96%] flex justify-between items-center">
                           <th className="text-start text-lg px-6 py-3">
                             Course Code{" "}
                           </th>
@@ -237,7 +237,7 @@ function StudentDashboard() {
                       {courses.map((course, index) => (
                         <tbody
                           key={index}
-                          className="mb-[10px] rounded-lg  border-2 flex justify-around hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
+                          className="mb-[10px] w-[94%] rounded-lg  border-2 flex justify-around hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
                         >
                           <tr
                             onClick={() => handleCourseDetailsModal(course)}
@@ -274,7 +274,7 @@ function StudentDashboard() {
                 </div>
               </div>
               {firstEnrollment.length ? (
-                <div className="w-[28%] flex flex-col justify-start h-[370px] rounded items-center bg-gray-100">
+                <div className="w-[40%] flex flex-col mr-[10px] justify-start h-[370px] rounded items-center bg-gray-100">
                     <div className="mb-[10px] font-bold text-lg h-[100px] bg-gray-200 w-full flex text-center items-center justify-center">
                       Selected Courses ({courseCount})
                     </div>
