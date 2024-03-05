@@ -5,9 +5,14 @@ import { FaLock } from "react-icons/fa";
 import { FaBookOpen } from "react-icons/fa";
 import { RxDashboard } from "react-icons/rx";
 import { GiStairs } from "react-icons/gi";
+import { showErrorToast, showSuccessToast } from "../utilities/toastifySetup";
 // import { useState } from "react";
 
-function Sidebar() {
+function StudentSidebar() {
+    const student:any = localStorage.getItem('student')
+    const mainStudent = JSON.parse(student)
+
+    
     return (
         <div className="w-[20%] h-screen bg-[#2D00F7] top-0 left-0 fixed p-[20px] flex justify-center" style={{zIndex: '200'}}>
             <div className="w-[250px] pt-4">
@@ -47,7 +52,7 @@ function Sidebar() {
                 </NavLink>
                 </div>
                 <div className="mt-[20px]">
-                <NavLink to='/me' className="p-[10px] flex gap-2 jusify-center items-center rounded-lg" style={({ isActive }) => { return { backgroundColor: isActive ? "white" : "#2D00F7", color: isActive ? "blue" : "white"};}}>
+                <NavLink to='/' onClick={()=> {showSuccessToast(`Goodbye ${mainStudent.first_name}`); localStorage.clear();} }className="p-[10px] flex gap-2 jusify-center items-center rounded-lg" style={({ isActive }) => { return { backgroundColor: isActive ? "white" : "#2D00F7", color: isActive ? "blue" : "white"};}}>
                         <span className="py-2"><RiLogoutCircleRLine className="p-0.5 rounded text-white bg-[#8265F7]"/></span>
                         <span className="text-[20px] font-extralight">Logout</span>
                 </NavLink>
@@ -57,4 +62,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default StudentSidebar;

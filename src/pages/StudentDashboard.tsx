@@ -1,8 +1,8 @@
 import Button from "../components/Button";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
-import { useState } from "react";
+import Sidebar from "../components/StudentSidebar";
+import { useEffect, useState } from "react";
 import { showErrorToast } from "../utilities/toastifySetup";
 import Modal from "../components/Modal";
 
@@ -13,6 +13,17 @@ function StudentDashboard() {
   const [showCourseModal, setShowCourseModal] = useState(false);
   const [modalCoures, setModalCourses] = useState<any>();
   const [courseCount, setCourseCount] = useState(0);
+
+  const student:any = localStorage.getItem('student')
+
+  const studentDetails = JSON.parse(student)
+
+  const [filters, setFilters] = useState({
+    semester: 'Second',
+    session: '2023/2024',
+    level: studentDetails.level,
+    department_id: studentDetails.department_id
+  })
 
   const handleCourseDetailsModal = (course: any) => {
     setModalCourses(course);
@@ -156,10 +167,14 @@ function StudentDashboard() {
     },
   ]);
 
+  useEffect(()=> {
+
+  })
+
   return (
     <div className="bg-[#F9FAFB]">
         <Sidebar />
-      <Navbar name={"Benn"} />
+      <Navbar name={studentDetails.first_name} />
       <div className="ml-[200px]">
         {/* The middle section */}
         <div className=" w-[1000px] mt-[90px] ml-[120px] bg-[#F9FAFB]">
@@ -197,13 +212,25 @@ function StudentDashboard() {
                     Semester: Second
                   </div>
                   <div className="text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
-                    <p className="flex font-inter">
-                      Session: 2022/2023{" "}
-                      <ChevronDownIcon
+                    <div className="flex font-inter">
+                      Session: <br />
+                      {/* 2022/2023{" "} */}
+                      {/* <ChevronDownIcon
                         className="h-5 w-5 text-gray-400"
                         aria-hidden="true"
-                      />
-                    </p>
+                      /> */}
+                      <select
+              name="sign-in"
+              id="sign-in"
+              className="w-full rounded-md hover:cursor-pointer bg-white"
+              onChange={(e) => setFilters({...filters, session: e.target.value})}
+            >
+              <option value="option-1">2023/2024</option>
+              <option value="option-2">2022/2023</option>
+              <option value="option-2">2021/2022</option>
+              <option value="option-2">2020/2021</option>
+            </select>
+                    </div>
                   </div>
                   <div className="text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
                     <p className="flex font-inter">Total Units: {totalUnits}</p>

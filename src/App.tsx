@@ -1,6 +1,6 @@
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import StudentDashboard from "./pages/StudentDashboard";
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/StudentSidebar";
 import Navbar from "./components/Navbar";
 import LaunchScreen from "./pages/LaunchScreen";
 import StudentSignIn from "./pages/StudentSignIn";

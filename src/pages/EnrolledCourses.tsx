@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/StudentSidebar";
 import SessionCalendar from "../components/SessionCalendar";
 import Modal from "../components/Modal";
 // import date from "date-fns";

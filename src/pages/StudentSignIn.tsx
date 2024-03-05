@@ -17,46 +17,73 @@ const StudentSignIn = () => {
     password: "",
   });
 
-  const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+  const [loading, setLoading] = useState(false);
+  const [regErrors, setRegErrors] = useState(false);
+  const [passErrors, setPassErrors] = useState(false);
 
-  const handleSubmit = async(e:any)=> {
-    try{
-      e.preventDefault()
-      setLoading(true)
+  const navigate = useNavigate();
 
-      const dataForBackend = new FormData()
+  const handleSubmit = async (e: any) => {
+    try {
+      e.preventDefault();
 
-      dataForBackend.append('reg_no', userDetails.registration_no)
-      dataForBackend.append('password', userDetails.password)
-
-      const data = await loginStudent(dataForBackend)
-
-      if(data.status !== 200){
-        setLoading(false)
-        setUserDetails({
-          registration_no: "",
-          password: "",
-        })
-        return showErrorToast(data.data.message)
+      if (
+        userDetails.registration_no.length === 0 &&
+        userDetails.password.length === 0
+      ) {
+        setPassErrors(true);
+        return setRegErrors(true);
       }
 
-      showSuccessToast(data.data.message)
+      if (userDetails.registration_no.length === 0) {
+        return setRegErrors(true);
+      }
 
-      setLoading(false)
+      if (userDetails.password.length === 0) {
+        return setPassErrors(true);
+      }
+
+      setLoading(true);
+
+      const dataForBackend = new FormData();
+
+      dataForBackend.append("reg_no", userDetails.registration_no);
+      dataForBackend.append("password", userDetails.password);
+
+      const data = await loginStudent(dataForBackend);
+
+      if (data.status !== 200) {
+        setLoading(false);
+        // setUserDetails({
+        //   registration_no: "",
+        //   password: "",
+        // });
+        return showErrorToast(data.data.message);
+      }
+
+      if(data.data.user.user_type === 'Lecturer'){
+        setLoading(false)
+        return showErrorToast(`This registration belongs to a lecturer, navigate to the lecturer's signin page`)
+      }
+
+      showSuccessToast(data.data.message);
+
+      setLoading(false);
 
       setUserDetails({
         registration_no: "",
         password: "",
-      })
+      });
 
-      return navigate('/StudentDashboard')
+      localStorage.setItem('student', JSON.stringify(data.data.user))
 
-      
-    }catch(error){
-      console.log(error)
+      localStorage.setItem('token', data.data.token)
+
+      return navigate("/StudentDashboard");
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   return (
     <>
@@ -219,11 +246,27 @@ const StudentSignIn = () => {
                     gap: "8px",
                     background: "#FFFFFF",
                   }}
-                  value = {userDetails.registration_no}
-                  onChange={(e:any)=> setUserDetails({...userDetails, registration_no: e.target.value})}
-                  required
+                  value={userDetails.registration_no}
+                  onChange={(e: any) => {
+                    setUserDetails({
+                      ...userDetails,
+                      registration_no: e.target.value,
+                    });
+                    setRegErrors(false);
+                  }}
                 />
-                <br />
+                {regErrors ? (
+                  <p
+                    style={{
+                      fontSize: "12px",
+                      color: "red",
+                    }}
+                  >
+                    <em>Registration Number Required</em>
+                  </p>
+                ) : (
+                  <br />
+                )}
                 <br />
 
                 <div className="relative">
@@ -241,15 +284,30 @@ const StudentSignIn = () => {
                         "linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #BDBDBD, #BDBDBD)",
                       paddingLeft: "40px",
                     }}
-                    value = {userDetails.password}
-                    onChange={(e:any)=> setUserDetails({...userDetails, password: e.target.value})}
-                    required
+                    value={userDetails.password}
+                    onChange={(e: any) => {
+                      setUserDetails({
+                        ...userDetails,
+                        password: e.target.value,
+                      });
+                      setPassErrors(false);
+                    }}
                   />
                   <HiLockClosed
                     size={18}
                     className="absolute mt-3 left-4 top-1/2 transform -translate-y-1/2 text-gray-500"
                   />
                 </div>
+                  {passErrors ? (
+                    <p
+                      style={{
+                        fontSize: "12px",
+                        color: "red",
+                      }}
+                    >
+                      <em>Password Required</em>
+                    </p>
+                  ) : null}
 
                 <a
                   href="/forgetPassword"
@@ -258,9 +316,10 @@ const StudentSignIn = () => {
                   Forgot password?
                 </a>
               </div>
-                <button className="border-2 border-blue-700 w-80 h-12 p-3 text-white hover:bg-white hover:text-blue-700 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12 text-white">
-                  {loading ? 'Loading...' : 'Signin'}
-                </button>
+              <br />
+              <button className="border-2 border-blue-700 w-80 h-12 p-3 text-white hover:bg-white hover:text-blue-700 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12 text-white">
+                {loading ? "Loading..." : "Signin"}
+              </button>
             </div>
           </form>
         </div>
