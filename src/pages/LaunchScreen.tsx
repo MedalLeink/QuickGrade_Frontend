@@ -97,7 +97,7 @@ const LaunchScreen: React.FC = () => {
             <br />
             <br />
             <br />
-            <Link to={selectedOption === "option-2" ? "/SignInPage" : "/"}>
+            <Link to={selectedOption === "option-2" ? "/studentsignin" : "/"}>
               <button className="w-full border-2 border-blue-800 hover:bg-white hover:text-blue-700 h-12 p-4 md:p-3 mt:p-3 border-0 rounded-full text-white bg-blue-800">
                 Get Started
               </button>
