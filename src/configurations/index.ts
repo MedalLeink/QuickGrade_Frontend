@@ -16,8 +16,8 @@ interface Secrets {
         secrets: {
           apiHost:
             environment === "development"
-              ? "http://localhost:3050/"
-              : "http://localhost:3050/",
+              ? "http://localhost:3010/"
+              : "http://localhost:3010/",
         },
       });
     }

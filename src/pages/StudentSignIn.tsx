@@ -1,14 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { HiLockClosed } from "react-icons/hi";
 import SignInImage from "../../public/SigninImage.png";
 // import ForgetPassword from "./forgetPassword";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginStudent } from "../axios/axiosFunctions/studentAxios";
+import { showErrorToast, showSuccessToast } from "../utilities/toastifySetup";
 // import Footer from "./Footer";
 // import EnrolledCourses from "./EnrolledCourses";
 
-const SignInPage = () => {
+const StudentSignIn = () => {
   const title = "Camouflage University";
   const subtitle = "Inspiring greatness through education.";
+
+  const [userDetails, setUserDetails] = useState({
+    registration_no: "",
+    password: "",
+  });
+
+  const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
+
+  const handleSubmit = async(e:any)=> {
+    try{
+      e.preventDefault()
+      setLoading(true)
+
+      const dataForBackend = new FormData()
+
+      dataForBackend.append('reg_no', userDetails.registration_no)
+      dataForBackend.append('password', userDetails.password)
+
+      const data = await loginStudent(dataForBackend)
+
+      if(data.status !== 200){
+        setLoading(false)
+        setUserDetails({
+          registration_no: "",
+          password: "",
+        })
+        return showErrorToast(data.data.message)
+      }
+
+      showSuccessToast(data.data.message)
+
+      setLoading(false)
+
+      setUserDetails({
+        registration_no: "",
+        password: "",
+      })
+
+      return navigate('/StudentDashboard')
+
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
 
   return (
     <>
@@ -106,6 +154,7 @@ const SignInPage = () => {
               background: "#F9FAFB",
               marginBottom: "777",
             }}
+            onSubmit={handleSubmit}
           >
             {/* Your form content */}
             <div></div>
@@ -170,6 +219,9 @@ const SignInPage = () => {
                     gap: "8px",
                     background: "#FFFFFF",
                   }}
+                  value = {userDetails.registration_no}
+                  onChange={(e:any)=> setUserDetails({...userDetails, registration_no: e.target.value})}
+                  required
                 />
                 <br />
                 <br />
@@ -189,6 +241,9 @@ const SignInPage = () => {
                         "linear-gradient(0deg, #FFFFFF, #FFFFFF), linear-gradient(0deg, #BDBDBD, #BDBDBD)",
                       paddingLeft: "40px",
                     }}
+                    value = {userDetails.password}
+                    onChange={(e:any)=> setUserDetails({...userDetails, password: e.target.value})}
+                    required
                   />
                   <HiLockClosed
                     size={18}
@@ -203,12 +258,9 @@ const SignInPage = () => {
                   Forgot password?
                 </a>
               </div>
-
-              <Link to="/StudentDashboard">
                 <button className="border-2 border-blue-700 w-80 h-12 p-3 text-white hover:bg-white hover:text-blue-700 rounded-full flex items-center justify-center gap-2 bg-blue-700 mt-12 text-white">
-                Sign in
-              </button>
-              </Link>
+                  {loading ? 'Loading...' : 'Signin'}
+                </button>
             </div>
           </form>
         </div>
@@ -241,4 +293,4 @@ height: 20px
   );
 };
 
-export default SignInPage;
+export default StudentSignIn;

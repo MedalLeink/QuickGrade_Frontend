@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BackgroundImage from "../../public/launch_screen.png";
 import logo from "./images/award.png";
-import SignInPage from "./SignInPage";
+import SignInPage from "./StudentSignIn";
 import Footer from "./Footer";
 
 const LaunchScreen: React.FC = () => {
