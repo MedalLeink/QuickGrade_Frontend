@@ -11,6 +11,10 @@ const EnrolledCourses = () => {
   const [showCourseModal, setShowCourseModal] = useState(false);
   const [modalCoures, setModalCourses] = useState<any>();
 
+  const student:any = localStorage.getItem('student')
+
+  const studentDetails = JSON.parse(student)
+
   const handleCourseDetailsModal = (course: any) => {
     setModalCourses(course);
     console.log(course)
@@ -50,7 +54,7 @@ const EnrolledCourses = () => {
     <div className="flex">
       <Sidebar />
       <div className="flex flex-col flex-1 overflow-hidden">
-        <Navbar name={"22/23/08/019"} />
+        <Navbar name={studentDetails.dataValues.first_name} />
         <div className="p-8 h-full bg-blue-50 ml-[300px] mt-[90px] bg-opacity-50">
           <h2 className="w-272 h-6 -mt-3 font-Inter font-bold text-2xl leading-9 tracking-wide text-left text-black">
             Enrolled Courses
@@ -61,13 +65,13 @@ const EnrolledCourses = () => {
           >
             <div className="w-[927px] h-[88px] top-16 left-41 pb-8 pt-8 md:p-120 gap-300 flex items-center justify-between">
               <span className="w-166 h-34 font-bold pl-32 text-32 font-inter font-bold leading-45 tracking-0.25 text-left text-white">
-                22/23/08/019
+                {studentDetails.userID_no}
               </span>
               <span className="w-221 h-88 text-14 font-inter pr-34 font-normal leading-22 tracking-0.15 text-left text-white">
-                Department of Biochemistry,
+                Department of {studentDetails.departmentName},
                 <br />
-                Faculty of Science, <br />
-                Camouflage University, <br /> Atlanta, Nigeria.
+                {studentDetails.facultyName}, <br />
+                Camouflage University, <br /> Nigeria.
               </span>
             </div>
           </div>
@@ -77,7 +81,7 @@ const EnrolledCourses = () => {
                 className="w-121 mt-4  h-10 font-inter text-24 font-bold leading-34 tracking-0 text-left"
                 style={{ color: "#667085" }}
               >
-                Semester: Second
+                Semester: First
               </div>
               <div className="flex items-center gap-8 ">
                 <span className="w-295">
