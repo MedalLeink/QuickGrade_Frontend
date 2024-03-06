@@ -63,7 +63,7 @@ const StudentSignIn = () => {
 
       if(data.data.user.user_type === 'Lecturer'){
         setLoading(false)
-        return showErrorToast(`This registration belongs to a lecturer, navigate to the lecturer's signin page`)
+        return showErrorToast(`This registration number belongs to a lecturer, navigate to the lecturer's signin page`)
       }
 
       showSuccessToast(data.data.message);

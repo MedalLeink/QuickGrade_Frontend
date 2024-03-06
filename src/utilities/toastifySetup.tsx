@@ -1,15 +1,15 @@
 import { toast } from 'react-toastify';
 
 export const showToast = (message:string) => {
-    toast(message)
+   return toast(message)
 }
 
 export const showSuccessToast = (message:string) => {
-    toast.success(message)
+   return toast.success(message)
 }
 
 export const showErrorToast = (message:string) => {
-    toast.error(message)
+   return toast.error(message)
 }
 
 export { toast };

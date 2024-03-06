@@ -3,8 +3,10 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import { useEffect, useState } from "react";
-import { showErrorToast } from "../utilities/toastifySetup";
+import { showErrorToast, showSuccessToast } from "../utilities/toastifySetup";
 import Modal from "../components/Modal";
+import { getDepartmentCourses, studentEnroll } from "../axios/axiosFunctions/studentAxios";
+import { useNavigate } from "react-router-dom";
 
 function StudentDashboard() {
   const [firstEnrollment, setFirstEnrollment] = useState<any>([]);
@@ -19,7 +21,7 @@ function StudentDashboard() {
   const studentDetails = JSON.parse(student)
 
   const [filters, setFilters] = useState({
-    semester: 'Second',
+    semester: 'First',
     session: '2023/2024',
     level: studentDetails.level,
     department_id: studentDetails.department_id
@@ -27,6 +29,7 @@ function StudentDashboard() {
 
   const handleCourseDetailsModal = (course: any) => {
     setModalCourses(course);
+    console.log(course)
     return setShowCourseModal(true);
   };
 
@@ -37,24 +40,25 @@ function StudentDashboard() {
 
   const handleEnroll = async (course: any) => {
     try {
+      console.log(course)
       const isCourseEnrolled = firstEnrollment.some(
-        (enrolledCourse: any) => enrolledCourse.code === course.code
+        (enrolledCourse: any) => enrolledCourse.dataValues.course_code === course.dataValues.course_code
       );
 
       if (isCourseEnrolled) {
-        return showErrorToast("Course already enrolled");
+        return showErrorToast("Course already added to the enrollment list");
       } else {
-        if (totalUnits < course.unit || totalUnits === 0) {
+        if (totalUnits < Number(course.dataValues.credit_unit) || totalUnits === 0) {
           return showErrorToast(
             "You do not have enough units to enroll for this course"
           );
         }
 
         let newUnit = usedUnits;
-        newUnit = newUnit + course.unit;
+        newUnit = newUnit + Number(course.dataValues.credit_unit);
 
         let newTotalUnits = totalUnits;
-        newTotalUnits = newTotalUnits - course.unit;
+        newTotalUnits = newTotalUnits - Number(course.dataValues.credit_unit);
         setTotalUnits(newTotalUnits);
         setUsedUnits(newUnit);
         setFirstEnrollment([...firstEnrollment, course]);
@@ -77,10 +81,10 @@ function StudentDashboard() {
 
       let newUnit = usedUnits;
 
-      newUnit = newUnit - course.unit;
+      newUnit = newUnit - Number(course.dataValues.credit_unit);
 
       let newTotalUnits = totalUnits;
-      newTotalUnits = newTotalUnits + course.unit;
+      newTotalUnits = newTotalUnits + Number(course.dataValues.credit_unit);
       setTotalUnits(newTotalUnits);
       setUsedUnits(newUnit);
       setFirstEnrollment(updatedEnrollment);
@@ -101,75 +105,69 @@ function StudentDashboard() {
     return setCourseCount(0);
   };
 
-  const [courses, setCourses] = useState([
-    {
-      code: "BSC 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education that has all the itrigues of life embedded in it. We have it here guys fhjsygg oiygejeb oicga ig wuyhegboijc yab aoiurg tc hgudhg icusoiurgc",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "MAT 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "MBN 100",
-      title: "Biochemistry of Diseases",
-      unit: 3,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "PHE 100",
-      title: "Biochemistry of Diseases",
-      unit: 2,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "KQY 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "BUT 100",
-      title: "Biochemistry of Diseases",
-      unit: 2,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "KUT 100",
-      title: "Biochemistry of Diseases",
-      unit: 3,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "MUT 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-    {
-      code: "BYC 100",
-      title: "Biochemistry of Diseases",
-      unit: 3,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-    },
-  ]);
+  const [courses, setCourses] = useState<any>([]);
+  const [loading, setLoading] = useState(false)
+  const [checkEnroll, setCheckEnroll] = useState(false)
+  const [alreadyEnrolled, setAlreadyEnrolled] = useState<any>([])
+
+  const navigate = useNavigate()
+
+  const fetchCourses = async()=>{
+    try{
+      const data = await getDepartmentCourses(filters)
+
+      console.log(data.data)
+      
+     return setCourses(data.data.coursesWithDepartments)
+      
+    }catch(error){
+      console.log(error)
+    }
+  }
+
+  const submitCourses = async(event:any) => {
+    try{
+      // event.preventDefault()
+      setLoading(true)
+
+      const submissions = firstEnrollment.map((course:any) => course.dataValues)
+
+      const sent = {
+        courses: JSON.stringify(submissions)
+      }
+
+      const data = await studentEnroll(sent)
+
+      console.log(data)
+
+      if(data.status === 406){
+        setLoading(false)
+        setAlreadyEnrolled(data.data.checkEnrollment)
+        return setCheckEnroll(true)
+      }
+
+      if(data.status !== 200){
+        setLoading(false)
+        return showErrorToast(data.data.message)
+      }
+
+      showSuccessToast(data.data.message)
+
+      setLoading(false)
+
+      clearCourses()
+
+      return navigate('/EnrolledCourses')
+
+    }catch(error:any){
+      console.log(error.message)
+    }
+  }
+
 
   useEffect(()=> {
-
-  })
+    fetchCourses()
+  }, [filters])
 
   return (
     <div className="bg-[#F9FAFB]">
@@ -209,7 +207,7 @@ function StudentDashboard() {
               <div className="w-full">
                 <div className="flex justify-between">
                   <div className="font-inter text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
-                    Semester: Second
+                    Semester: First
                   </div>
                   <div className="text-gray-500 font-bold font-custom my-4 whitespace-nowrap">
                     <div className="flex font-inter">
@@ -225,10 +223,10 @@ function StudentDashboard() {
               className="w-full rounded-md hover:cursor-pointer bg-white"
               onChange={(e) => setFilters({...filters, session: e.target.value})}
             >
-              <option value="option-1">2023/2024</option>
-              <option value="option-2">2022/2023</option>
-              <option value="option-2">2021/2022</option>
-              <option value="option-2">2020/2021</option>
+              <option value="2023/2024">2023/2024</option>
+              <option value="2022/2023">2022/2023</option>
+              <option value="2021/2022">2021/2022</option>
+              <option value="2020/2021">2020/2021</option>
             </select>
                     </div>
                   </div>
@@ -261,7 +259,7 @@ function StudentDashboard() {
                         </tr>
                       </thead>
                       <div className="bg-white">
-                      {courses.map((course, index) => (
+                      {courses?.map((course:any, index:number) => (
                         <tbody
                           key={index}
                           className="mb-[10px] w-[94%] rounded-lg  border-2 flex justify-around hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
@@ -270,19 +268,17 @@ function StudentDashboard() {
                             onClick={() => handleCourseDetailsModal(course)}
                             className="w-full flex justify-around items-center"
                           >
-                            <td className="text-lg px-6 py-3">{course.code}</td>
-                            <td className="text-lg px-6 py-3">
-                              {course.title.length > 12
-                                ? `${course.title.substring(0, 12)}...`
-                                : course.title}
+                            <td className="text-lg px-6 w-[150px] py-3 flex justify-center items-center">{course.dataValues.course_code}</td>
+                            <td className="text-lg w-[160px] px-6 py-3">
+                              {course.dataValues.title.length > 10 ? `${course.dataValues.title.substring(0, 10)}...` : course.dataValues.title}
                             </td>
-                            <td className="text-lg px-6 py-3">
-                              {`${course.unit} Units`}
+                            <td className="text-lg w-[130px] px-6 py-3">
+                              {`${course.dataValues.credit_unit} Units`}
                             </td>
-                            <td className="text-lg px-6 py-3">
-                              {course.dept.length > 12
-                                ? `${course.dept.substring(0, 12)}...`
-                                : course.dept}
+                            <td className="text-lg w-[180px] px-6 py-3">
+                              {course.departmentName.length > 10
+                                ? `${course.departmentName.substring(0, 10)}...`
+                                : course.departmentName}
                             </td>
                           </tr>
                           <td className="text-lg px-6 py-3 mt-[10px]">
@@ -301,12 +297,13 @@ function StudentDashboard() {
                 </div>
               </div>
               {firstEnrollment.length ? (
-                <div className="w-[40%] flex flex-col mr-[10px] justify-start h-[370px] rounded items-center bg-gray-100">
-                    <div className="mb-[10px] font-bold text-lg h-[100px] bg-gray-200 w-full flex text-center items-center justify-center">
-                      Selected Courses ({courseCount})
-                    </div>
+                <div className="w-[40%] flex flex-col">
+                  <form className="w-[90%] flex flex-col mr-[10px] justify-start h-[370px] rounded items-center bg-gray-100">
+                  <div className="mb-[10px] font-bold text-lg h-[100px] bg-gray-200 w-full flex text-center items-center justify-center">
+                    Selected Courses ({courseCount})
+                  </div>
                   <div className="w-[100%] h-[300px] flex flex-col items-center overflow-y-scroll">
-                    {firstEnrollment.map((enrolled: any, index: any) => (
+                    {firstEnrollment.map((enrolled: any, index: number) => (
                       <div
                         className="flex w-[95%] mb-[10px] flex justify-center items-center pt-[10px]"
                         style={{ border: "solid 1px gray" }}
@@ -316,17 +313,14 @@ function StudentDashboard() {
                           <table className="w-[100%]">
                             <tbody className="w-[90%] pl-[10px]">
                               <tr className="w-[100%] flex justify-around">
-                                <td>{enrolled.code}</td>
-                                <td>{`${enrolled.unit} Units`}</td>
+                                <td>{enrolled.dataValues.course_code}</td>
+                                <td>{`${enrolled.dataValues.credit_unit} Units`}</td>
                                 <td className="">
                                   <Button
                                     title={"Remove"}
                                     text={"white"}
                                     bg={"red"}
-                                    onClick={() =>
-                                      handleUnenroll(enrolled, index)
-                                    }
-                                  />
+                                    onClick={() => handleUnenroll(enrolled, index)} />
                                 </td>
                               </tr>
                             </tbody>
@@ -340,15 +334,18 @@ function StudentDashboard() {
                       title={"Clear Courses"}
                       text={"white"}
                       bg={"red"}
-                      onClick={clearCourses}
-                    />
+                      onClick={clearCourses} />
                     <Button
-                      title={"Submit Courses"}
+                      title={loading ? 'Loading...' : 'Submit'}
                       text={"white"}
                       bg={"#2D00F7"}
-                    />
+                      onClick={submitCourses} />
                   </div>
+                </form>
+                <br />
+                {checkEnroll ? <p className="text-red-700 text-sm flex justify-center items-center"><em>Already Enrolled in the following course(s): {alreadyEnrolled.map((a:any)=> a + " ")}</em></p> : null}
                 </div>
+
               ) : null}
             </div>
           </div>
@@ -364,23 +361,23 @@ function StudentDashboard() {
               <div className="flex flex-col p-[10px] w-full gap-[20px] h-[300px] overflow-y-scroll">
                 <div>
                   <span className="font-bold text-lg">Course Code: </span>
-                  {modalCoures.code}
+                  {modalCoures.dataValues.course_code}
                 </div>
                 <div>
                   <span className="font-bold text-lg">Course Title: </span>
-                  {modalCoures.title}
+                  {modalCoures.dataValues.title}
                 </div>
                 <div>
                   <span className="font-bold text-lg">Credit Unit: </span>
-                  {modalCoures.unit} units
+                  {modalCoures.dataValues.credit_unit} units
                 </div>
-                <div>
+                {/* <div>
                   <span className="font-bold text-lg">Lecturer Name: </span>
                   {modalCoures.lecturer}
-                </div>
+                </div> */}
                 <div>
                   <span className="font-bold text-lg">Department: </span>
-                  {modalCoures.dept}
+                  {modalCoures.departmentName}
                 </div>
               </div>
             </div>

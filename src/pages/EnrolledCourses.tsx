@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import SessionCalendar from "../components/SessionCalendar";
 import Modal from "../components/Modal";
+import { getEnrolledCourses } from "../axios/axiosFunctions/studentAxios";
 // import date from "date-fns";
 
 const EnrolledCourses = () => {
@@ -12,6 +13,7 @@ const EnrolledCourses = () => {
 
   const handleCourseDetailsModal = (course: any) => {
     setModalCourses(course);
+    console.log(course)
     return setShowCourseModal(true);
   };
 
@@ -20,89 +22,29 @@ const EnrolledCourses = () => {
     return setShowCourseModal(false);
   };
 
-  const [courses, setCourses] = useState([
-    {
-      code: "BSC 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education that has all the itrigues of life embedded in it. We have it here guys fhjsygg oiygejeb oicga ig wuyhegboijc yab aoiurg tc hgudhg icusoiurgc",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Expired",
-    },
-    {
-      code: "MAT 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Expired",
-    },
-    {
-      code: "MBN 100",
-      title: "Biochemistry of Diseases",
-      unit: 3,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Expired",
-    },
-    {
-      code: "PHE 100",
-      title: "Biochemistry of Diseases",
-      unit: 2,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Unavailable",
-    },
-    {
-      code: "KQY 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Unavailable",
-    },
-    {
-      code: "BUT 100",
-      title: "Biochemistry of Diseases",
-      unit: 2,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Unavailable",
-    },
-    {
-      code: "KUT 100",
-      title: "Biochemistry of Diseases",
-      unit: 3,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Unavailable",
-    },
-    {
-      code: "MUT 100",
-      title: "Biochemistry of Diseases",
-      unit: 5,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Take Exam",
-    },
-    {
-      code: "BYC 100",
-      title: "Biochemistry of Diseases",
-      unit: 3,
-      dept: "Biochemistry of Education",
-      lecturer: "Prof Albert",
-      venue: "Hall 600",
-      status: "Take Exam",
-    },
-  ]);
+  const [courses, setCourses] = useState<any>([]);
+
+  const fetchStudentCourses = async() => {
+    try{
+
+      const body = {
+        semester: 'First',
+        session: '2023/2024',
+      }
+
+      const data = await getEnrolledCourses(body)
+
+      console.log(data.data)
+
+      return setCourses(data.data.coursesWithDepartments)
+
+    }catch(error:any){
+      console.log(error.message)
+    }
+  }
+  useEffect(()=> {
+    fetchStudentCourses()
+  }, [])
 
   return (
     <div className="flex">
@@ -158,16 +100,16 @@ const EnrolledCourses = () => {
                       <th className="text-start text-lg px-6 py-3 pl-2 pr-1">
                         Department
                       </th>
-                      <th className="text-start text-lg px-6 py-3 pl-4">
+                      {/* <th className="text-start text-lg px-6 py-3 pl-4">
                         Venue
-                      </th>
+                      </th> */}
                       <th className="text-start text-lg px-6 py-3 pr-1">
                         Status
                       </th>
                     </tr>
                   </thead>
                   <div className="bg-white">
-                    {courses.map((course, index) => (
+                    {courses.length ? (courses.map((course:any, index:number) => (
                       <tbody
                         key={index}
                         className="mb-[10px] w-full  border-2 flex justify-center hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
@@ -177,35 +119,35 @@ const EnrolledCourses = () => {
                           className="w-[100%] flex p-[5px] justify-around items-center"
                         >
                           <td className="text-lg py-3 w-[95px]">
-                            {course.code}
+                            {course.dataValues.course_code}
                           </td>
                           <td className="text-lg py-3 w-[95px]">
-                            {course.title.length > 12
-                              ? `${course.title.substring(0, 12)}...`
-                              : course.title}
+                            {course.dataValues.course_title.length > 10
+                              ? `${course.dataValues.course_title.substring(0, 10)}...`
+                              : course.dataValues.course_title}
                           </td>
                           <td className="text-lg py-3 w-[95px]">
-                            {course.dept.length > 12
-                              ? `${course.dept.substring(0, 12)}...`
-                              : course.dept}
+                            {course.departmentName.length > 10
+                              ? `${course.departmentName.substring(0, 10)}...`
+                              : course.departmentName}
                           </td>
-                          <td className="text-lg py-3 w-[80px]">
+                          {/* <td className="text-lg py-3 w-[80px]">
                             {course.venue}
-                          </td>
+                          </td> */}
                           <td
-                            className={`text-lg py-3 w-[95px] ${
-                              course.status === "Expired"
+                            className={`flex justify-center items-center text-lg py-3 w-[95px] ${
+                              course.examinationStatus === "Expired"
                                 ? "text-red-500"
-                                : course.status === "Unavailable"
+                                : course.examinationStatus === "No"
                                 ? "text-gray-500"
                                 : "text-green-500"
                             }`}
                           >
-                            {course.status}
+                           {course.examinationStatus === 'No' ? 'Unavailable' : course.examinationStatus === 'Expired' ? 'Expired' : 'Take Exam'}
                           </td>
                         </tr>
                       </tbody>
-                    ))}
+                    ))):(<div className="text-red-700"><br /><strong><em>Not Enrolled in any course yet...</em></strong></div>)}
                   </div>
                 </table>
               </div>
@@ -223,17 +165,17 @@ const EnrolledCourses = () => {
               <div className="flex flex-col p-[10px] w-full gap-[20px] h-[300px] overflow-y-scroll">
                 <div>
                   <span className="font-bold text-lg">Course Code: </span>
-                  {modalCoures.code}
+                  {modalCoures.dataValues.course_code}
                 </div>
                 <div>
                   <span className="font-bold text-lg">Course Title: </span>
-                  {modalCoures.title}
+                  {modalCoures.dataValues.course_title}
                 </div>
                 <div>
-                  <span className="font-bold text-lg">Credit Unit: </span>
-                  {modalCoures.unit} units
+                  <span className="font-bold text-lg">Department: </span>
+                  {modalCoures.departmentName}
                 </div>
-                <div>
+                {/* <div>
                   <span className="font-bold text-lg">Lecturer Name: </span>
                   {modalCoures.lecturer}
                 </div>
@@ -244,19 +186,19 @@ const EnrolledCourses = () => {
                 <div>
                   <span className="font-bold text-lg">Exam Venue: </span>
                   {modalCoures.venue}
-                </div>
+                </div> */}
                 <div>
-                  <span className={`font-bold text-lg`}>Course Status: </span>
+                  <span className={`font-bold text-lg`}>Course Exam Status: </span>
                   <span
                     className={`${
-                      modalCoures.status === "Expired"
+                      modalCoures.examinationStatus === "Expired"
                         ? "text-red-500"
-                        : modalCoures.status === "Unavailable"
+                        : modalCoures.examinationStatus === "No"
                         ? "text-gray-500"
                         : "text-green-500"
                     }`}
                   >
-                    {modalCoures.status}
+                    {modalCoures.examinationStatus === 'No' ? 'Unavailable' : modalCoures.examinationStatus === 'Expired' ? 'Expired' : 'Take Exam'}
                   </span>
                 </div>
               </div>
