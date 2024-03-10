@@ -10,7 +10,8 @@ import { showErrorToast, showSuccessToast } from "../utilities/toastifySetup";
 
 function StudentSidebar() {
     const student:any = localStorage.getItem('student')
-    const mainStudent = JSON.parse(student)
+
+    const studentDetails = JSON.parse(student)
 
     
     return (
@@ -52,7 +53,7 @@ function StudentSidebar() {
                 </NavLink>
                 </div>
                 <div className="mt-[20px]">
-                <NavLink to='/' onClick={()=> {showSuccessToast(`Goodbye ${mainStudent.first_name}`); localStorage.clear();} }className="p-[10px] flex gap-2 jusify-center items-center rounded-lg" style={({ isActive }) => { return { backgroundColor: isActive ? "white" : "#2D00F7", color: isActive ? "blue" : "white"};}}>
+                <NavLink to='/' onClick={()=> {showSuccessToast(`Goodbye ${studentDetails.dataValues.first_name}`); localStorage.clear();} }className="p-[10px] flex gap-2 jusify-center items-center rounded-lg" style={({ isActive }) => { return { backgroundColor: isActive ? "white" : "#2D00F7", color: isActive ? "blue" : "white"};}}>
                         <span className="py-2"><RiLogoutCircleRLine className="p-0.5 rounded text-white bg-[#8265F7]"/></span>
                         <span className="text-[20px] font-extralight">Logout</span>
                 </NavLink>

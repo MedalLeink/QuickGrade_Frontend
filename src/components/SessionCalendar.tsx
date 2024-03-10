@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const SessionCalendar = () => {
-  const [selectedYear] = useState("2022/2023");
+  const [selectedYear] = useState("2023/2024");
 
 
   return (

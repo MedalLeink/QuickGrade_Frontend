@@ -23,8 +23,8 @@ function StudentDashboard() {
   const [filters, setFilters] = useState({
     semester: 'First',
     session: '2023/2024',
-    level: studentDetails.level,
-    department_id: studentDetails.department_id
+    level: studentDetails.dataValues.level,
+    department_id: studentDetails.dataValues.department_id
   })
 
   const handleCourseDetailsModal = (course: any) => {
@@ -172,7 +172,7 @@ function StudentDashboard() {
   return (
     <div className="bg-[#F9FAFB]">
         <Sidebar />
-      <Navbar name={studentDetails.first_name} />
+      <Navbar name={studentDetails.dataValues.first_name} />
       <div className="ml-[200px]">
         {/* The middle section */}
         <div className=" w-[1000px] mt-[90px] ml-[120px] bg-[#F9FAFB]">
@@ -186,17 +186,17 @@ function StudentDashboard() {
           <div className="border-9 rounded-[16px] h-[150px] w-[1100px] bg-[#2D00F7] mr-[156px] text-white flex justify-around items-center">
             <div>
               <p className="ml-[50px] text-lg font-inter font-bold">
-                22/23/08/019
+                {studentDetails.userID_no}
               </p>
             </div>
             <div>
               <p className="text-lg font-inter font-bold">
-                Department of Biochemistry.
-                <br /> Faculty of Science.
+                Department of {studentDetails.departmentName},
+                <br /> {studentDetails.facultyName},
                 <br />
-                Camouflage university.
+                Camouflage university,
                 <br />
-                Atlanta, Nigeria.
+                Nigeria.
               </p>
             </div>
           </div>
