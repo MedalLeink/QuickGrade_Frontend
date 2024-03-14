@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { HiLockClosed } from "react-icons/hi";
 import SignInImage from "../../public/SigninImage.png";
-// import ForgetPassword from "./forgetPassword";
 import { Link, useNavigate } from "react-router-dom";
 import { loginStudent } from "../axios/axiosFunctions/studentAxios";
 import { showErrorToast, showSuccessToast } from "../utilities/toastifySetup";
-// import Footer from "./Footer";
-// import EnrolledCourses from "./EnrolledCourses";
 
 const StudentSignIn = () => {
   const title = "Camouflage University";
