@@ -3,9 +3,17 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import SessionCalendar from "../components/SessionCalendar";
 
+interface StudentDetails {
+  dataValues: {
+    first_name: string;
+    level: string;
+    department_id: string;
+  };
+}
+
 export const ResultScreen = () => {
   const student: any = localStorage.getItem("student");
-  const studentDetails = JSON.parse(student);
+  const studentDetails: StudentDetails = JSON.parse(student);
   const [filters, setFilters] = useState({
     semester: "First",
     session: "2023/2024",
@@ -13,7 +21,8 @@ export const ResultScreen = () => {
     department_id: studentDetails.dataValues.department_id,
   });
 
-  const inputStyle = {
+  const inputStyle: React.CSSProperties = {
+
     width: "320px",
     height: "48px",
     position: "absolute",
@@ -156,36 +165,6 @@ export const ResultScreen = () => {
                         Total Score
                       </div>
                     </div>
-                    {/* <div className="flex flex-col -mt-12 -ml-12 w-160">
-                      <div
-                        className="font-inter text-lg font-extrabold font-bold leading-22 tracking-[0.15px] text-left"
-                        style={{ width: "81px", height: "22px" }}
-                      >
-                        Section A: <span className="text-gray-600">38/40</span>
-                      </div>
-                      <div className="font-inter text-lg font-extrabold mt-2">
-                        Section B: <span className="text-gray-700">24/30</span>
-                      </div>
-                      <div className="flex items-center font-inter text-base font-bold leading-22 tracking-[0.15px] text-[#004FFF] mt-4 ml-8">
-                        View Script
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="text-blue-500 ml-2"
-                        >
-                          <path
-                            d="M1.8335 1.83331L10.1668 10.1666M10.1668 10.1666V1.83331M10.1668 10.1666H1.8335"
-                            stroke="#004FFF"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
                 <div className="w-1/3 bg-gray-400 bg-opacity-30 rounded-2xl ml-3">
@@ -243,36 +222,6 @@ export const ResultScreen = () => {
                         Total Score
                       </div>
                     </div>
-                    {/* <div className="flex flex-col -mt-12 -ml-12 w-160">
-                      <div
-                        className="font-inter text-lg font-extrabold font-bold leading-22 tracking-[0.15px] text-left"
-                        style={{ width: "81px", height: "22px" }}
-                      >
-                        Section A: <span className="text-gray-600">38/40</span>
-                      </div>
-                      <div className="font-inter text-lg font-extrabold mt-2">
-                        Section B: <span className="text-gray-700">24/30</span>
-                      </div>
-                      <div className="flex items-center font-inter text-base font-bold leading-22 tracking-[0.15px] text-[#004FFF] mt-4 ml-8">
-                        View Script
-                        <svg
-                          width="12"
-                          height="12"
-                          viewBox="0 0 12 12"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="text-blue-500 ml-2"
-                        >
-                          <path
-                            d="M1.8335 1.83331L10.1668 10.1666M10.1668 10.1666V1.83331M10.1668 10.1666H1.8335"
-                            stroke="#004FFF"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    </div> */}
                   </div>
                 </div>
                 <div className="w-1/3 bg-gray-400 bg-opacity-30 rounded-2xl ml-3 mt-4 mb-2">
