@@ -6,6 +6,8 @@ import LaunchScreen from "./pages/LaunchScreen";
 import StudentSignIn from "./pages/StudentSignIn";
 import ForgetPassword from "./pages/forgetPassword";
 import EnrolledCourses from "./pages/EnrolledCourses";
+import TakeExamInstructions from "./pages/TakeExamInstructions";
+import TakeExamPage from "./pages/TakeExamPage";
 import ResetPassword from "./pages/resetPassword";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -24,6 +26,8 @@ const App = () => {
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/navbar" element={<Navbar name={"22/23/07/019"} />} />
         <Route path="/EnrolledCourses" element={<EnrolledCourses />} />
+        <Route path="/TakeExam" element={<TakeExamInstructions />} />
+        <Route path="/TakeExamPage" element={<TakeExamPage />} />
         <Route path="/ResultScreen" element={<ResultScreen />} />
       </Routes>
     </Router>
