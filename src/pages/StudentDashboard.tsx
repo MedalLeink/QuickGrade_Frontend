@@ -259,7 +259,7 @@ function StudentDashboard() {
                         </tr>
                       </thead>
                       <div className="bg-white">
-                      {courses?.map((course:any, index:number) => (
+                      { courses.length ? (courses?.map((course:any, index:number) => (
                         <tbody
                           key={index}
                           className="mb-[10px] w-[94%] rounded-lg  border-2 flex justify-around hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
@@ -290,7 +290,7 @@ function StudentDashboard() {
                             />
                           </td>
                         </tbody>
-                      ))}
+                      ))):(<div className="text-red-700"><br /><strong><em>No courses found...</em></strong></div>)}
                       </div>
                     </table>
                   </div>
@@ -313,8 +313,8 @@ function StudentDashboard() {
                           <table className="w-[100%]">
                             <tbody className="w-[90%] pl-[10px]">
                               <tr className="w-[100%] flex justify-around">
-                                <td>{enrolled.dataValues.course_code}</td>
-                                <td>{`${enrolled.dataValues.credit_unit} Units`}</td>
+                                <td className="mt-[10px]">{enrolled.dataValues.course_code}</td>
+                                <td className="mt-[10px]">{`${enrolled.dataValues.credit_unit} Units`}</td>
                                 <td className="">
                                   <Button
                                     title={"Remove"}
@@ -329,17 +329,21 @@ function StudentDashboard() {
                       </div>
                     ))}
                   </div>
-                  <div className="flex justify-around rounded w-[100%] bg-gray-200 p-[20px]">
+                  <div className="bg-gray-200 w-[100%] h-[70px]">
+                    <div className="flex w-[90%] justify-around gap-[20px] mt-[10px]">
                     <Button
                       title={"Clear Courses"}
                       text={"white"}
                       bg={"red"}
-                      onClick={clearCourses} />
+                      onClick={clearCourses} 
+                      />
                     <Button
                       title={loading ? 'Loading...' : 'Submit'}
                       text={"white"}
                       bg={"#2D00F7"}
-                      onClick={submitCourses} />
+                      onClick={submitCourses}
+                       />
+                    </div>
                   </div>
                 </form>
                 <br />

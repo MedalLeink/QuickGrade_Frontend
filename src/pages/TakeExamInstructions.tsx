@@ -2,12 +2,15 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import Button from "../components/Button";
 import { GoDotFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 const TakeExamInstructions = () => {
 
     const student:any = localStorage.getItem('student')
 
     const studentDetails = JSON.parse(student)
+
+    const navigate = useNavigate()
 
     return (
         <div className="bg-[#F9FAFB]">
@@ -60,7 +63,7 @@ const TakeExamInstructions = () => {
                                     title={"Start Exam"}
                                     text={"white"}
                                     bg={"#2D00F7"}
-                                    //   onClick={() => handleEnroll(course)}
+                                      onClick={() => navigate('/TakeExamPage')}
                                 />
                             </div>
                         </div>

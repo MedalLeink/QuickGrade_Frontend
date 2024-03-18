@@ -1,7 +1,6 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
-import Button from "../components/Button";
-import Dropdown from 'react-bootstrap/Dropdown';
+import Counter from "../components/ExamTimer";
 
 const TakeExamPage = () => {
 
@@ -16,20 +15,12 @@ const TakeExamPage = () => {
             <div className="flex justify-end">
                 <div className="w-[75%] mt-[83px] bg-[#F7FAFE]">
                     <div className="flex justify-between p-5">
-                        <h2 className="font-inter font-bold text-2xl">Take Exams</h2>
-                        <div className="w-[auto] h-[auto] bg-[#667085] flex-col px-2 py-2 drop-shadow-lg">
-                            <div className="flex justify-around">
-                                <div className="w-[60px] h-[60px] flex justify-center items-center border-2 border-white rounded-full p-2 text-white text-2xl">118</div>
-                                <div className="flex items-center text-2xl text-white mx-2">:</div>
-                                <div className="w-[60px] h-[60px] flex justify-center items-center border-2 border-white rounded-full p-2 text-white text-2xl">32</div>
-                            </div>
-                            <div className="flex justify-between">
-                                <p className="text-white">Minutes</p>
-                                <p className="text-white">Seconds</p>
-                            </div>
-                        </div>
+                        <h2 className="font-inter font-bold text-4xl">Take Exam</h2>                    
+                    <div className="w-[15%]">
+                    <Counter seconds={60} />
                     </div>
-                    <div className="w-[957px] h-[330px] bg-[#3746F5]">
+                    </div>
+                    <div className="w-[957px] h-[330px] bg-[#3746F5] mt-[50px]">
                         <div className="px-10 pt-5">
                             <div className="flex justify-between">
                                 <div className="">
