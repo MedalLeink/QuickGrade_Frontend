@@ -18,7 +18,7 @@ function Button(props: Props) {
   return (
     <button
       type={props.type || "button"}
-      className={`flex px-4 py-1 justify-center border border-purple-50 text-purple-50 items-center hover:bg-purple-50 hover:text-white flex-shrink-0 rounded-full text-xs font-Inter `}
+      className={`w-full flex px-4 py-2 justify-center border border-purple-50 text-purple-50 items-center hover:bg-purple-50 hover:text-white flex-shrink-0 rounded-full text-sm font-Inter `}
       style={buttonStyle}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}

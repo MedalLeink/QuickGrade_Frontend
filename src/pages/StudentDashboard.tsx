@@ -170,10 +170,10 @@ function StudentDashboard() {
   }, [filters])
 
   return (
-    <div className="bg-[#F9FAFB]">
+    <div className="bg-[#F9FAFB] overflow-hidden">
         <Sidebar />
       <Navbar name={studentDetails.dataValues.first_name} />
-      <div className="ml-[200px]">
+      <div className="ml-[200px] overflow-hidden">
         {/* The middle section */}
         <div className=" w-[1000px] mt-[90px] ml-[120px] bg-[#F9FAFB]">
           {/* The Dashboard */}
@@ -238,11 +238,11 @@ function StudentDashboard() {
                   </div>
                 </div>
 
-                <div className="flex justify-between w-[97%] h-[500px] mb-[50px] overflow-y-scroll">
+                <div className="flex justify-between w-[97%] h-[380px] mb-[50px] overflow-y-scroll">
                   <div className="w-[100%]">
                     <table className="w-full flex flex-col">
-                      <thead className="w-[90%]">
-                        <tr className="w-[96%] flex justify-between items-center">
+                      <thead className="w-[100%]">
+                        <tr className="w-[96%] flex justify-around items-center">
                           <th className="text-start text-lg px-6 py-3">
                             Course Code{" "}
                           </th>
@@ -266,18 +266,18 @@ function StudentDashboard() {
                         >
                           <tr
                             onClick={() => handleCourseDetailsModal(course)}
-                            className="w-full flex justify-around items-center"
+                            className="w-full flex justify-between items-center"
                           >
-                            <td className="text-lg px-6 w-[150px] py-3 flex justify-center items-center">{course.dataValues.course_code}</td>
-                            <td className="text-lg w-[160px] px-6 py-3">
-                              {course.dataValues.title.length > 10 ? `${course.dataValues.title.substring(0, 10)}...` : course.dataValues.title}
+                            <td className="text-lg w-1/4 py-3 flex justify-center items-center">{course.dataValues.course_code}</td>
+                            <td className="text-lg w-1/4 py-3">
+                              {course.dataValues.title.length > 10 ? `${course.dataValues.title.substring(0, 20)}...` : course.dataValues.title}
                             </td>
-                            <td className="text-lg w-[130px] px-6 py-3">
+                            <td className="text-lg w-1//4 py-3">
                               {`${course.dataValues.credit_unit} Units`}
                             </td>
-                            <td className="text-lg w-[180px] px-6 py-3">
+                            <td className="text-lg w-1/4 py-3">
                               {course.departmentName.length > 10
-                                ? `${course.departmentName.substring(0, 10)}...`
+                                ? `${course.departmentName.substring(0, 20)}...`
                                 : course.departmentName}
                             </td>
                           </tr>

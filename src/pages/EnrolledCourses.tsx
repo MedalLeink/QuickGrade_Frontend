@@ -65,7 +65,7 @@ const EnrolledCourses = () => {
           >
             <div className="w-[927px] h-[88px] top-16 left-41 pb-8 pt-8 md:p-120 gap-300 flex items-center justify-between">
               <span className="w-166 h-34 font-bold pl-32 text-32 font-inter font-bold leading-45 tracking-0.25 text-left text-white">
-                {studentDetails.userID_no}
+                {studentDetails.dataValues.userID_no}
               </span>
               <span className="w-221 h-88 text-14 font-inter pr-34 font-normal leading-22 tracking-0.15 text-left text-white">
                 Department of {studentDetails.departmentName},
@@ -98,16 +98,16 @@ const EnrolledCourses = () => {
                       <th className="text-start text-lg px-6 py-3 pl-16 pr-1">
                         Course Code{" "}
                       </th>
-                      <th className="text-start text-lg px-6 py-3 pl-2 pr-2">
+                      <th className="text-start text-lg px-6 py-3 ">
                         Course Title
                       </th>
-                      <th className="text-start text-lg px-6 py-3 pl-2 pr-1">
+                      <th className="text-start text-lg px-6 py-3 ">
                         Department
                       </th>
                       {/* <th className="text-start text-lg px-6 py-3 pl-4">
                         Venue
                       </th> */}
-                      <th className="text-start text-lg px-6 py-3 pr-1">
+                      <th className="text-start text-lg px-6 ">
                         Status
                       </th>
                     </tr>
@@ -120,26 +120,26 @@ const EnrolledCourses = () => {
                       >
                         <tr
                           onClick={() => handleCourseDetailsModal(course)}
-                          className="w-[100%] flex p-[5px] justify-around items-center"
+                          className="w-[100%] flex p-[5px] justify-between items-center"
                         >
-                          <td className="text-lg py-3 w-[95px]">
+                          <td className="text-lg py-3 w-1/4 flex justify-center">
                             {course.dataValues.course_code}
                           </td>
-                          <td className="text-lg py-3 w-[95px]">
+                          <td className="text-lg py-3 w-1/4">
                             {course.dataValues.course_title.length > 10
-                              ? `${course.dataValues.course_title.substring(0, 10)}...`
+                              ? `${course.dataValues.course_title.substring(0, 20)}...`
                               : course.dataValues.course_title}
                           </td>
-                          <td className="text-lg py-3 w-[95px]">
+                          <td className="text-lg py-3 w-1/4">
                             {course.departmentName.length > 10
-                              ? `${course.departmentName.substring(0, 10)}...`
+                              ? `${course.departmentName.substring(0, 20)}...`
                               : course.departmentName}
                           </td>
                           {/* <td className="text-lg py-3 w-[80px]">
                             {course.venue}
                           </td> */}
                           <td
-                            className={`flex justify-center items-center text-lg py-3 w-[95px] ${
+                            className={`flex justify-center items-center text-lg py-3 w-1/4 ${
                               course.examinationStatus === "Expired"
                                 ? "text-red-500"
                                 : course.examinationStatus === "No"
