@@ -186,7 +186,7 @@ function StudentDashboard() {
           <div className="border-9 rounded-[16px] h-[150px] w-[1100px] bg-[#2D00F7] mr-[156px] text-white flex justify-around items-center">
             <div>
               <p className="ml-[50px] text-lg font-inter font-bold">
-                {studentDetails.userID_no}
+                {studentDetails.dataValues.userID_no}
               </p>
             </div>
             <div>
