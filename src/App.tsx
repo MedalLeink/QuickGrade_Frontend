@@ -10,6 +10,12 @@ import ResetPassword from "./pages/resetPassword";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { ResultScreen } from "./pages/ResultScreen";
+import { ViewResultPage } from "./pages/ViewResultPage";
+import { ResultPage2 } from "./pages/ResultPage2";
+import { ResultPage3 } from "./pages/ResultPage3";
+import { ResultPage4 } from "./pages/ResultPage4";
+import { ResultPage5 } from "./pages/ResultPage5";
+import { ResultPage6 } from "./pages/ResultPage6";
 
 const App = () => {
   return (
@@ -25,6 +31,12 @@ const App = () => {
         <Route path="/navbar" element={<Navbar name={"22/23/07/019"} />} />
         <Route path="/EnrolledCourses" element={<EnrolledCourses />} />
         <Route path="/ResultScreen" element={<ResultScreen />} />
+        <Route path="/ViewResultPage" element={<ViewResultPage darkMode={undefined} leftIcon={undefined} rightIcon={undefined} />} />
+        <Route path="/ResultPage2" element={<ResultPage2 darkMode={undefined} leftIcon={undefined} rightIcon={undefined} />} />
+        <Route path="/ResultPage3" element={<ResultPage3 darkMode={undefined} leftIcon={undefined} rightIcon={undefined} />} />
+        <Route path="/ResultPage4" element={<ResultPage4 darkMode={undefined} leftIcon={undefined} rightIcon={undefined} />} />
+        <Route path="/ResultPage5" element={<ResultPage5 darkMode={undefined} leftIcon={undefined} rightIcon={undefined} />} />
+        <Route path="/ResultPage6" element={<ResultPage6 darkMode={undefined} leftIcon={undefined} rightIcon={undefined} />} />
       </Routes>
     </Router>
   );

@@ -51,7 +51,7 @@ function StudentSidebar() {
         <div className="mt-[20px]">
           <NavLink
             to="/EnrolledCourses"
-            className="p-[10px] flex gap-2 jusify-center items-center rounded-lg"
+            className="p-[10px] flex gap-2 justify-center items-center rounded-lg"
             style={({ isActive }) => {
               return {
                 backgroundColor: isActive ? "white" : "#2D00F7",
