@@ -170,10 +170,10 @@ function StudentDashboard() {
   }, [filters])
 
   return (
-    <div className="bg-[#F9FAFB]">
+    <div className="bg-[#F9FAFB] overflow-hidden">
         <Sidebar />
       <Navbar name={studentDetails.dataValues.first_name} />
-      <div className="ml-[200px]">
+      <div className="ml-[200px] overflow-hidden">
         {/* The middle section */}
         <div className=" w-[1000px] mt-[90px] ml-[120px] bg-[#F9FAFB]">
           {/* The Dashboard */}
@@ -186,7 +186,7 @@ function StudentDashboard() {
           <div className="border-9 rounded-[16px] h-[150px] w-[1100px] bg-[#2D00F7] mr-[156px] text-white flex justify-around items-center">
             <div>
               <p className="ml-[50px] text-lg font-inter font-bold">
-                {studentDetails.userID_no}
+                {studentDetails.dataValues.userID_no}
               </p>
             </div>
             <div>
@@ -238,11 +238,11 @@ function StudentDashboard() {
                   </div>
                 </div>
 
-                <div className="flex justify-between w-[97%] h-[500px] mb-[50px] overflow-y-scroll">
+                <div className="flex justify-between w-[97%] h-[380px] mb-[50px] overflow-y-scroll">
                   <div className="w-[100%]">
                     <table className="w-full flex flex-col">
-                      <thead className="w-[90%]">
-                        <tr className="w-[96%] flex justify-between items-center">
+                      <thead className="w-[100%]">
+                        <tr className="w-[96%] flex justify-around items-center">
                           <th className="text-start text-lg px-6 py-3">
                             Course Code{" "}
                           </th>
@@ -259,25 +259,25 @@ function StudentDashboard() {
                         </tr>
                       </thead>
                       <div className="bg-white">
-                      {courses?.map((course:any, index:number) => (
+                      { courses.length ? (courses?.map((course:any, index:number) => (
                         <tbody
                           key={index}
                           className="mb-[10px] w-[94%] rounded-lg  border-2 flex justify-around hover:cursor-pointer hover:brightness-180 hover:bg-gray-200"
                         >
                           <tr
                             onClick={() => handleCourseDetailsModal(course)}
-                            className="w-full flex justify-around items-center"
+                            className="w-full flex justify-between items-center"
                           >
-                            <td className="text-lg px-6 w-[150px] py-3 flex justify-center items-center">{course.dataValues.course_code}</td>
-                            <td className="text-lg w-[160px] px-6 py-3">
-                              {course.dataValues.title.length > 10 ? `${course.dataValues.title.substring(0, 10)}...` : course.dataValues.title}
+                            <td className="text-lg w-1/4 py-3 flex justify-center items-center">{course.dataValues.course_code}</td>
+                            <td className="text-lg w-1/4 py-3">
+                              {course.dataValues.title.length > 10 ? `${course.dataValues.title.substring(0, 20)}...` : course.dataValues.title}
                             </td>
-                            <td className="text-lg w-[130px] px-6 py-3">
+                            <td className="text-lg w-1//4 py-3">
                               {`${course.dataValues.credit_unit} Units`}
                             </td>
-                            <td className="text-lg w-[180px] px-6 py-3">
+                            <td className="text-lg w-1/4 py-3">
                               {course.departmentName.length > 10
-                                ? `${course.departmentName.substring(0, 10)}...`
+                                ? `${course.departmentName.substring(0, 20)}...`
                                 : course.departmentName}
                             </td>
                           </tr>
@@ -290,7 +290,7 @@ function StudentDashboard() {
                             />
                           </td>
                         </tbody>
-                      ))}
+                      ))):(<div className="text-red-700"><br /><strong><em>No courses found...</em></strong></div>)}
                       </div>
                     </table>
                   </div>
@@ -313,8 +313,8 @@ function StudentDashboard() {
                           <table className="w-[100%]">
                             <tbody className="w-[90%] pl-[10px]">
                               <tr className="w-[100%] flex justify-around">
-                                <td>{enrolled.dataValues.course_code}</td>
-                                <td>{`${enrolled.dataValues.credit_unit} Units`}</td>
+                                <td className="mt-[10px]">{enrolled.dataValues.course_code}</td>
+                                <td className="mt-[10px]">{`${enrolled.dataValues.credit_unit} Units`}</td>
                                 <td className="">
                                   <Button
                                     title={"Remove"}
@@ -329,17 +329,21 @@ function StudentDashboard() {
                       </div>
                     ))}
                   </div>
-                  <div className="flex justify-around rounded w-[100%] bg-gray-200 p-[20px]">
+                  <div className="bg-gray-200 w-[100%] h-[70px]">
+                    <div className="flex w-[90%] justify-around gap-[20px] mt-[10px]">
                     <Button
                       title={"Clear Courses"}
                       text={"white"}
                       bg={"red"}
-                      onClick={clearCourses} />
+                      onClick={clearCourses} 
+                      />
                     <Button
                       title={loading ? 'Loading...' : 'Submit'}
                       text={"white"}
                       bg={"#2D00F7"}
-                      onClick={submitCourses} />
+                      onClick={submitCourses}
+                       />
+                    </div>
                   </div>
                 </form>
                 <br />
