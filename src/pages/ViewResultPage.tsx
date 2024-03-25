@@ -278,7 +278,7 @@ export const ViewResultPage = ({ darkMode, leftIcon, rightIcon }) => {
                         "5px 4.166665554046631px 5px 4.166666507720947px",
                     }}
                   ></div>
-                  <div className="width-hug height-hug gap-16 -mt-12 ml-2">
+                  <div className="width-hug height-hug gap-16 -mt-12 -ml-10">
                     <div className="flex gap-8">
                       <button
                         className={`flex items-center justify-center w-20 h-20 mr-3 relative ${
@@ -344,39 +344,44 @@ export const ViewResultPage = ({ darkMode, leftIcon, rightIcon }) => {
                             href="ViewResultPage2"
                             className="flex items-start justify-center w-20 h-20 mr-3 relative"
                           >
-                            <button
-                              className={`flex items-start justify-center w-20 h-20 mr-3 relative ${
-                                darkMode
-                                  ? "bg-gray-900 text-white"
-                                  : "text-blue-700"
-                              }`}
+                            <a
+                              href="/ResultPage2"
+                              className="flex items-center"
                             >
-                              {leftIcon && (
-                                <img
-                                  src={leftIcon}
-                                  alt="Left Icon"
-                                  className="w-5 h-5 mr-2 absolute left-2 top-2"
-                                />
-                              )}
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-52 transform rotate-180"
-                                viewBox="0 0 20 20"
-                                fill="none"
-                                stroke="currentColor"
+                              <button
+                                className={`flex items-start justify-center w-20 h-20 mr-3 relative ${
+                                  darkMode
+                                    ? "bg-gray-900 text-white"
+                                    : "text-blue-700"
+                                }`}
                               >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2"
-                                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                                />
-                              </svg>
-                              <div className="w-108 h-20 flex items-center ml-52 mt-9">
-                                <span className="mr-2">Next </span>{" "}
-                                <span>Section</span>
-                              </div>
-                            </button>
+                                {leftIcon && (
+                                  <img
+                                    src={leftIcon}
+                                    alt="Left Icon"
+                                    className="w-5 h-5 mr-2 absolute left-2 top-2"
+                                  />
+                                )}
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-52 transform rotate-180"
+                                  viewBox="0 0 20 20"
+                                  fill="none"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                                  />
+                                </svg>
+                                <div className="w-108 h-20 flex items-center ml-48 mt-9">
+                                  <span className="mr-2">Next</span>
+                                  <span>Section</span>
+                                </div>
+                              </button>
+                            </a>
                           </a>
                         </div>
                       </div>

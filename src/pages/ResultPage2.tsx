@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import QuestionWithOptions from "../components/QuestionWithOptions";
 import { Link } from "react-router-dom";
+import { ViewResultPage } from "./ViewResultPage";
 
 export const ResultPage2 = ({ darkMode, leftIcon, rightIcon }) => {
   const student = localStorage.getItem("student");
@@ -399,43 +400,47 @@ export const ResultPage2 = ({ darkMode, leftIcon, rightIcon }) => {
                                   ></div>
                                   <div className="width-hug height-hug gap-16 -mt-16 ml-44">
                                     <div className="flex gap-8">
-                                      <button
-                                        className={`flex items-center justify-center w-20 h-20 mr-3 relative ${
-                                          darkMode
-                                            ? "bg-gray-900 text-white"
-                                            : "text-gray-500"
-                                        }`}
+                                      <a
+                                        href="/ViewResultPage"
+                                        className="flex items-center"
                                       >
-                                        {leftIcon && (
-                                          <img
-                                            src={leftIcon}
-                                            alt="Left Icon"
-                                            className="w-5 h-5 mr-2 absolute left-2 top-2"
-                                          />
-                                        )}
-                                        <svg
-                                          xmlns="http://www.w3.org/2000/svg"
-                                          className="w-4 h-4 mr-2 absolute left-0 top-1 -ml-14"
-                                          viewBox="0 0 20 20"
-                                          fill="none"
-                                          stroke="currentColor"
+                                        <button
+                                          className={`flex items-center justify-center w-20 h-20 mr-3 relative ${
+                                            darkMode
+                                              ? "bg-gray-900 text-white"
+                                              : "text-blue-700"
+                                          }`}
                                         >
-                                          <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                                          />
-                                        </svg>
-                                        <a href="/ViewResultPage">
-                                          <span className="mr-2 -mt-12">
-                                            Previous{" "}
-                                          </span>{" "}
-                                          <span className=" -mt-12">
-                                            Section
+                                          {leftIcon && (
+                                            <img
+                                              src={leftIcon}
+                                              alt="Left Icon"
+                                              className="w-5 h-5 mr-2 absolute left-2 top-2"
+                                            />
+                                          )}
+                                          <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="w-4 h-4 mr-2 absolute left-0 top-1 -ml-14"
+                                            viewBox="0 0 20 20"
+                                            fill="none"
+                                            stroke="currentColor"
+                                          >
+                                            <path
+                                              strokeLinecap="round"
+                                              strokeLinejoin="round"
+                                              strokeWidth="2"
+                                              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                                            />
+                                          </svg>
+                                          <span className="text-blue-700 -mt-14">
+                                            <span className="mr-2">
+                                              Previous
+                                            </span>
+                                            <span>Section</span>
                                           </span>
-                                        </a>
-                                      </button>
+                                        </button>
+                                      </a>
+
                                       {[1, 2, 3, 4, 5, 6].map((number) => (
                                         <div
                                           key={number}
@@ -447,7 +452,7 @@ export const ResultPage2 = ({ darkMode, leftIcon, rightIcon }) => {
                                         >
                                           <div className="flex items-center">
                                             <Link
-                                              to={`ViewResultPage${number}`}
+                                              to="/ViewResultPage"
                                               className="flex items-center gap-8"
                                               onClick={() =>
                                                 handleClick(number)
@@ -467,7 +472,7 @@ export const ResultPage2 = ({ darkMode, leftIcon, rightIcon }) => {
                                           </div>
                                         </div>
                                       ))}
-                                      <div className="width-hug height-hug gap-16 -mt-16 -ml-20">
+                                      <div className="width-hug height-hug gap-16 -mt-16 -ml-24">
                                         <div className="flex gap-8">
                                           <a
                                             href="ViewResultPage2"
@@ -487,26 +492,31 @@ export const ResultPage2 = ({ darkMode, leftIcon, rightIcon }) => {
                                                   className="w-5 h-5 mr-2 absolute left-2 top-2"
                                                 />
                                               )}
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-52 transform rotate-180"
-                                                viewBox="0 0 20 20"
-                                                fill="none"
-                                                stroke="currentColor"
+                                              <a
+                                                href="/Resultpage3"
+                                                className="flex items-center"
                                               >
-                                                <path
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                  strokeWidth="2"
-                                                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                                                />
-                                              </svg>
-                                              <div className="w-108 h-20 flex items-center ml-52 mt-9">
-                                                <span className="mr-2">
-                                                  Next{" "}
-                                                </span>{" "}
-                                                <span>Section</span>
-                                              </div>
+                                                <svg
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                  className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-52 transform rotate-180"
+                                                  viewBox="0 0 20 20"
+                                                  fill="none"
+                                                  stroke="currentColor"
+                                                >
+                                                  <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="2"
+                                                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                                                  />
+                                                </svg>
+                                                <div className="w-108 h-20 flex items-center ml-52 mt-9">
+                                                  <span className="mr-2">
+                                                    Next
+                                                  </span>
+                                                  <span>Section</span>
+                                                </div>
+                                              </a>
                                             </button>
                                           </a>
                                         </div>

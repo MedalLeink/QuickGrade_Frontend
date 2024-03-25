@@ -388,7 +388,7 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                   </div>
                                 </div>
                                 <div>
-                                  <div
+                                <div
                                     style={{
                                       width: "20px",
                                       height: "525px",
@@ -398,11 +398,12 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                   ></div>
                                   <div className="width-hug height-hug gap-16 -mt-16 ml-44">
                                     <div className="flex gap-8">
-                                      <button
-                                        className={`flex items-center justify-center w-20 h-20 mr-3 relative ${
+                                      <a
+                                        href="/ResultPage5"
+                                        className={`flex items-center justify-center w-20 h-20 mr-3 -mt-7 relative ${
                                           darkMode
                                             ? "bg-gray-900 text-white"
-                                            : "text-gray-500"
+                                            : "text-blue-700"
                                         }`}
                                       >
                                         {leftIcon && (
@@ -414,7 +415,7 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                         )}
                                         <svg
                                           xmlns="http://www.w3.org/2000/svg"
-                                          className="w-4 h-4 mr-2 absolute left-0 top-1 -ml-14"
+                                          className="w-4 h-4 mr-2 absolute left-0 top-8 -ml-14"
                                           viewBox="0 0 20 20"
                                           fill="none"
                                           stroke="currentColor"
@@ -426,13 +427,9 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                             d="M10 19l-7-7m0 0l7-7m-7 7h18"
                                           />
                                         </svg>
-                                        <a href="">
-                                        <span className="mr-2 -mt-12">
-                                          Previous{" "}
-                                        </span>{" "}
-                                        <span className=" -mt-12">Section</span>
-                                        </a>
-                                      </button>
+                                        <span className="mr-2">Previous</span>
+                                        <span>Section</span>
+                                      </a>
                                       {[1, 2, 3, 4, 5, 6].map((number) => (
                                         <div
                                           key={number}
@@ -486,10 +483,13 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                               )}
                                               <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-52 transform rotate-180"
+                                                className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-52 transform rotate-180 text-gray-500 cursor-default"
                                                 viewBox="0 0 20 20"
                                                 fill="none"
                                                 stroke="currentColor"
+                                                onClick={(e) =>
+                                                  e.preventDefault()
+                                                }
                                               >
                                                 <path
                                                   strokeLinecap="round"
@@ -499,10 +499,17 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                                 />
                                               </svg>
                                               <div className="w-108 h-20 flex items-center ml-52 mt-9">
-                                                <span className="mr-2">
-                                                  Next{" "}
-                                                </span>{" "}
-                                                <span>Section</span>
+                                                <span
+                                                  className="text-gray-500 cursor-default"
+                                                  onClick={(e) =>
+                                                    e.preventDefault()
+                                                  }
+                                                >
+                                                  <span className="mr-2">
+                                                    Next
+                                                  </span>
+                                                  <span>Section</span>
+                                                </span>
                                               </div>
                                             </button>
                                           </a>

@@ -398,11 +398,12 @@ export const ResultPage4 = ({ darkMode, leftIcon, rightIcon }) => {
                                   ></div>
                                   <div className="width-hug height-hug gap-16 -mt-16 ml-44">
                                     <div className="flex gap-8">
-                                      <button
-                                        className={`flex items-center justify-center w-20 h-20 mr-3 relative ${
+                                      <a
+                                        href="/ResultPage3"
+                                        className={`flex items-center justify-center w-20 h-20 mr-3 -mt-7 relative ${
                                           darkMode
                                             ? "bg-gray-900 text-white"
-                                            : "text-gray-500"
+                                            : "text-blue-700"
                                         }`}
                                       >
                                         {leftIcon && (
@@ -414,7 +415,7 @@ export const ResultPage4 = ({ darkMode, leftIcon, rightIcon }) => {
                                         )}
                                         <svg
                                           xmlns="http://www.w3.org/2000/svg"
-                                          className="w-4 h-4 mr-2 absolute left-0 top-1 -ml-14"
+                                          className="w-4 h-4 mr-2 absolute left-0 top-8 -ml-14"
                                           viewBox="0 0 20 20"
                                           fill="none"
                                           stroke="currentColor"
@@ -426,13 +427,10 @@ export const ResultPage4 = ({ darkMode, leftIcon, rightIcon }) => {
                                             d="M10 19l-7-7m0 0l7-7m-7 7h18"
                                           />
                                         </svg>
-                                        <a href="">
-                                        <span className="mr-2 -mt-12">
-                                          Previous{" "}
-                                        </span>{" "}
-                                        <span className=" -mt-12">Section</span>
-                                        </a>
-                                      </button>
+                                        <span className="mr-2">Previous</span>
+                                        <span>Section</span>
+                                      </a>
+
                                       {[1, 2, 3, 4, 5, 6].map((number) => (
                                         <div
                                           key={number}
@@ -484,26 +482,31 @@ export const ResultPage4 = ({ darkMode, leftIcon, rightIcon }) => {
                                                   className="w-5 h-5 mr-2 absolute left-2 top-2"
                                                 />
                                               )}
-                                              <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-52 transform rotate-180"
-                                                viewBox="0 0 20 20"
-                                                fill="none"
-                                                stroke="currentColor"
+                                              <a
+                                                href="/ResultPage5"
+                                                className="flex items-center"
                                               >
-                                                <path
-                                                  strokeLinecap="round"
-                                                  strokeLinejoin="round"
-                                                  strokeWidth="2"
-                                                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                                                />
-                                              </svg>
-                                              <div className="w-108 h-20 flex items-center ml-52 mt-9">
-                                                <span className="mr-2">
-                                                  Next{" "}
-                                                </span>{" "}
-                                                <span>Section</span>
-                                              </div>
+                                                <svg
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                  className="w-4 h-5 mr-2 absolute left-0 top-16 mt-1 ml-48 transform rotate-180"
+                                                  viewBox="0 0 20 20"
+                                                  fill="none"
+                                                  stroke="currentColor"
+                                                >
+                                                  <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="2"
+                                                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                                                  />
+                                                </svg>
+                                                <div className="w-108 h-20 flex items-center ml-48 mt-9">
+                                                  <span className="mr-2">
+                                                    Next
+                                                  </span>
+                                                  <span>Section</span>
+                                                </div>
+                                              </a>
                                             </button>
                                           </a>
                                         </div>
