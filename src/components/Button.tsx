@@ -6,7 +6,7 @@ interface Props {
   bg?: string;
   type?: any;
   width?: string;
-  onClick?: () => any;
+  onClick?: () => void;
 }
 
 function Button(props: Props) {

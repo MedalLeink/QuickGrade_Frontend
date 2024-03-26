@@ -1,5 +1,4 @@
 import Button from "../components/Button";
-import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import { useEffect, useState } from "react";
@@ -125,9 +124,8 @@ function StudentDashboard() {
     }
   }
 
-  const submitCourses = async(event:any) => {
+  const submitCourses = async() => {
     try{
-      // event.preventDefault()
       setLoading(true)
 
       const submissions = firstEnrollment.map((course:any) => course.dataValues)
@@ -375,10 +373,6 @@ function StudentDashboard() {
                   <span className="font-bold text-lg">Credit Unit: </span>
                   {modalCoures.dataValues.credit_unit} units
                 </div>
-                {/* <div>
-                  <span className="font-bold text-lg">Lecturer Name: </span>
-                  {modalCoures.lecturer}
-                </div> */}
                 <div>
                   <span className="font-bold text-lg">Department: </span>
                   {modalCoures.departmentName}

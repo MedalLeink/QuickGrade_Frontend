@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import SessionCalendar from "../components/SessionCalendar";
-import { Link, NavLink } from "react-router-dom";
-import ViewResult from "../pages/ViewResultPage";
+import { Link } from "react-router-dom";
 
 interface StudentDetails {
   dataValues: {

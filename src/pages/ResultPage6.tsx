@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import { Link } from "react-router-dom";
 
-export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
-  const student = localStorage.getItem("student");
-  const studentDetails = JSON.parse(student);
-  const [clickedNumber, setClickedNumber] = useState(null);
+interface Props {
+  darkMode?: any;
+  leftIcon?: any;
+  rightIcon?: any;
 
-  const handleClick = (number) => {
+}
+export const ResultPage6 = ( Props : Props) => {
+  const student:any = localStorage.getItem("student");
+  const studentDetails = JSON.parse(student);
+  const [clickedNumber, setClickedNumber] = useState(0);
+
+  const handleClick = (number: number) => {
     setClickedNumber(number);
   };
   const [filters, setFilters] = useState({
@@ -401,14 +407,14 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                       <a
                                         href="/ResultPage5"
                                         className={`flex items-center justify-center w-20 h-20 mr-3 -mt-7 relative ${
-                                          darkMode
+                                          Props.darkMode
                                             ? "bg-gray-900 text-white"
                                             : "text-blue-700"
                                         }`}
                                       >
-                                        {leftIcon && (
+                                        {Props.leftIcon && (
                                           <img
-                                            src={leftIcon}
+                                            src={Props.leftIcon}
                                             alt="Left Icon"
                                             className="w-5 h-5 mr-2 absolute left-2 top-2"
                                           />
@@ -469,14 +475,14 @@ export const ResultPage6 = ({ darkMode, leftIcon, rightIcon }) => {
                                           >
                                             <button
                                               className={`flex items-start justify-center w-20 h-20 mr-3 relative ${
-                                                darkMode
+                                                Props.darkMode
                                                   ? "bg-gray-900 text-white"
                                                   : "text-blue-700"
                                               }`}
                                             >
-                                              {leftIcon && (
+                                              {Props.leftIcon && (
                                                 <img
-                                                  src={leftIcon}
+                                                  src={Props.leftIcon}
                                                   alt="Left Icon"
                                                   className="w-5 h-5 mr-2 absolute left-2 top-2"
                                                 />

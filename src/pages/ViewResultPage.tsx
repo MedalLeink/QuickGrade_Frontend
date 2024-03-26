@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import QuestionWithOptions from "../components/QuestionWithOptions";
 import { Link } from "react-router-dom";
 
-export const ViewResultPage = ({ darkMode, leftIcon, rightIcon }) => {
-  const student = localStorage.getItem("student");
-  const studentDetails = JSON.parse(student);
-  const [clickedNumber, setClickedNumber] = useState(null);
 
-  const handleClick = (number) => {
+interface Props {
+  darkMode?: any;
+  leftIcon?: any;
+  rightIcon?: any;
+
+}
+
+export const ViewResultPage = (Props:Props) => {
+  const student:any = localStorage.getItem("student");
+  const studentDetails = JSON.parse(student);
+  const [clickedNumber, setClickedNumber] = useState(0);
+
+  const handleClick = (number:number) => {
     setClickedNumber(number);
   };
   const [filters, setFilters] = useState({
@@ -282,12 +290,12 @@ export const ViewResultPage = ({ darkMode, leftIcon, rightIcon }) => {
                     <div className="flex gap-8">
                       <button
                         className={`flex items-center justify-center w-20 h-20 mr-3 relative ${
-                          darkMode ? "bg-gray-900 text-white" : "text-gray-500"
+                          Props.darkMode ? "bg-gray-900 text-white" : "text-gray-500"
                         }`}
                       >
-                        {leftIcon && (
+                        {Props.leftIcon && (
                           <img
-                            src={leftIcon}
+                            src={Props.leftIcon}
                             alt="Left Icon"
                             className="w-5 h-5 mr-2 absolute left-2 top-2"
                           />
@@ -350,14 +358,14 @@ export const ViewResultPage = ({ darkMode, leftIcon, rightIcon }) => {
                             >
                               <button
                                 className={`flex items-start justify-center w-20 h-20 mr-3 relative ${
-                                  darkMode
+                                  Props.darkMode
                                     ? "bg-gray-900 text-white"
                                     : "text-blue-700"
                                 }`}
                               >
-                                {leftIcon && (
+                                {Props.leftIcon && (
                                   <img
-                                    src={leftIcon}
+                                    src={Props.leftIcon}
                                     alt="Left Icon"
                                     className="w-5 h-5 mr-2 absolute left-2 top-2"
                                   />
