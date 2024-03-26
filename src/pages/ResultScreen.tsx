@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/StudentSidebar";
 import SessionCalendar from "../components/SessionCalendar";
+import { Link, NavLink } from "react-router-dom";
+import ViewResult from "../pages/ViewResultPage";
 
 interface StudentDetails {
   dataValues: {
@@ -22,7 +24,6 @@ export const ResultScreen = () => {
   });
 
   const inputStyle: React.CSSProperties = {
-
     width: "320px",
     height: "48px",
     position: "absolute",
@@ -63,17 +64,19 @@ export const ResultScreen = () => {
           <div className="w-[calc((100% - 64px) / 3)] bg-white ml-28 rounded-2xl">
             <div className="-p-16 -pr-32 -pb-16 -pl-32 flex flex-col items-center p-4 -ml-28">
               <div className="flex justify-between w-full -mt-20 mr-20 ml-20 pl-28 pt-20">
-                <div className="w-1/3 bg-gray-400 bg-opacity-30 rounded-2xl">
+              <div className="w-1/3 bg-gray-400 bg-opacity-30 rounded-2xl ml-3">
                   <div className="p-2 pr-32 pb-16 -pl-32 flex flex-col items-center p-4">
                     <div className="font-inter text-2xl font-extrabold text-[#2D00F7] -ml-16">
-                      BCH 208
+                      BCH 108
                     </div>
                     <div className="flex items-center mt-4">
-                      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
-                        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
-                          62
+                      <Link to="/ViewResultPage">
+                        <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
+                          <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
+                            62
+                          </div>
                         </div>
-                      </div>
+                      </Link>
                       <div className="-ml-20 font-inter text-lg font-extrabold mt-3 -mb-24">
                         Total Score
                       </div>
@@ -116,11 +119,13 @@ export const ResultScreen = () => {
                       BCH 108
                     </div>
                     <div className="flex items-center mt-4">
-                      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
-                        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
-                          57
+                      <Link to="/ViewResultPage">
+                        <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
+                          <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
+                            57
+                          </div>
                         </div>
-                      </div>
+                      </Link>
                       <div className="-ml-20 font-inter text-lg font-extrabold mt-3 -mb-24">
                         Total Score
                       </div>
@@ -133,11 +138,13 @@ export const ResultScreen = () => {
                       BCH 233
                     </div>
                     <div className="flex items-center mt-4">
-                      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
-                        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
-                          68
-                        </div>
-                      </div>
+                    <Link to="/ViewResultPage">
+      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
+        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
+          68
+        </div>
+      </div>
+    </Link>
                       <div className="-ml-20 font-inter text-lg font-extrabold mt-3 -mb-24">
                         Total Score
                       </div>
@@ -156,11 +163,13 @@ export const ResultScreen = () => {
                       BCH 225
                     </div>
                     <div className="flex items-center mt-4">
-                      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
-                        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
-                          68
-                        </div>
-                      </div>
+                    <Link to="/ViewResultPage">
+      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
+        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
+          68
+        </div>
+      </div>
+    </Link>
                       <div className="-ml-20 font-inter text-lg font-extrabold mt-3 -mb-24">
                         Total Score
                       </div>
@@ -173,11 +182,13 @@ export const ResultScreen = () => {
                       BCH 223
                     </div>
                     <div className="flex items-center mt-4">
-                      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
-                        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
-                          46
-                        </div>
-                      </div>
+                    <Link to="/ViewResultPage">
+      <div className="w-20 h-20 p-6 rounded-full bg-green-600 bg-opacity-80 -mt-1 -ml-16">
+        <div className="flex items-center justify-center w-full h-full text-white text-4xl font-bold ml-0">
+          46
+        </div>
+      </div>
+    </Link>
                       <div className="-ml-20 font-inter text-lg font-extrabold mt-3 -mb-24">
                         Total Score
                       </div>
@@ -266,3 +277,7 @@ export const ResultScreen = () => {
     </div>
   );
 };
+
+
+
+
